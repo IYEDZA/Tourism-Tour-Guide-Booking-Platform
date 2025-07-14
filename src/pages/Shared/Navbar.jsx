@@ -41,7 +41,7 @@ const Navbar = () => {
             transition={{ repeat: Infinity, duration: 6, repeatType: 'loop' }}
             className="bg-clip-text p-3 rounded-3xl bg-gradient-to-r from-white via-gray-200 to-white"
           >
-            The Tourist Guide
+             Travel Zone
           </motion.span>
         </Link>
       </div>
