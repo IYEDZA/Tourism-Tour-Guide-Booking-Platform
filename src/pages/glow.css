@@ -1,0 +1,12 @@
+.glow-border {
+  background: linear-gradient(120deg, #3b82f6, #06b6d4, #10b981);
+  background-size: 300% 300%;
+  animation: glowing 6s ease infinite;
+  border-radius: 1rem;
+}
+
+@keyframes glowing {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

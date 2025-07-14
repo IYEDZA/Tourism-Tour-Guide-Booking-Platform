@@ -1,0 +1,35 @@
+
+
+/* === Snake Border === */
+.snake-border {
+  position: relative;
+  border: 4px solid transparent;
+  background-clip: padding-box;
+  border-radius: 1rem;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.snake-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 4px;
+  border-radius: 1rem;
+  background: linear-gradient(120deg, #00f, #0ff, #0f0, #ff0, #f00, #f0f, #00f);
+  background-size: 300% 300%;
+  animation: snakeRun 3.5s linear infinite;
+  z-index: -1;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+}
+
+@keyframes snakeRun {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
