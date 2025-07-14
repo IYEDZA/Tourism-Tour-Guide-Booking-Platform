@@ -50,7 +50,7 @@ const Navbar = () => {
         <Link to="/" className="btn btn-ghost text-white flex items-center gap-1"><FaHome /> Home</Link>
         <Link to="/community" className="btn btn-ghost text-white flex items-center gap-1"><FaUsers /> Community</Link>
         <Link to="/about" className="btn btn-ghost text-white flex items-center gap-1"><FaInfoCircle /> About Us</Link>
-        <Link to="/trips" className="btn btn-ghost text-white flex items-center gap-1"><FaSuitcase /> Trips</Link>
+        <Link to="/trip" className="btn btn-ghost text-white flex items-center gap-1"><FaSuitcase /> Trips</Link>
          <Link to="/tourguide" className="btn btn-ghost text-white flex items-center gap-1 "><FaSuitcase />TourGuideProfile </Link>
           <Link to="/package" className="btn btn-ghost text-white flex items-center gap-1 mr-2"><FaSuitcase />Package Details Page   </Link>
       </div>

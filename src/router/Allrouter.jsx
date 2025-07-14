@@ -25,6 +25,8 @@ import AllStoriesCard from "../pages/AllStoriesCard";
 import SingleTourGideDeatiles from "../pages/SingleTourGideDeatiles";
 import TouristBookings from "./dashbord/TouristBookings";
 import Payment from "../pages/Payment";
+import Tripscommponet from "../pages/Tripscommponet";
+import TravelOfferAnnouncement from "../pages/TravelOfferAnnouncement";
 
 
 export const router = createBrowserRouter([
@@ -42,10 +44,15 @@ export const router = createBrowserRouter([
         Component: CommunityPage,
     //     loader: () => fetch('./serviceCenter.json')
      },
-    //   {
-    //     path: 'forbidden',
-    //     Component: Forbidden
-    //   },
+       {
+        path: 'trip',
+        Component: Tripscommponet
+     },
+
+      {
+        path: 'offers',
+        Component: TravelOfferAnnouncement
+     },
       {
          path: 'about',
          Component:AboutUs

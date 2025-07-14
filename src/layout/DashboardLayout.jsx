@@ -152,7 +152,7 @@ const DashboardLayout = () => {
               }
             >
               <FaHome />
-              Home
+             Help
             </NavLink>
           </li>
 
@@ -165,8 +165,8 @@ const DashboardLayout = () => {
                 }`
               }
             >
-              <FaSearchLocation />
-              Track a Package
+              <FaSearchLocation />Assked More
+              
             </NavLink>
           </li>
            <li>
@@ -179,11 +179,11 @@ const DashboardLayout = () => {
               }
             >
               <FaHome />
-              Home
+              Settings
             </NavLink>
           </li>
 
-          <li>
+          {/* <li>
             <NavLink
               to="/dashboard/profile"
               className={({ isActive }) =>
@@ -195,7 +195,7 @@ const DashboardLayout = () => {
               <FaUserEdit />
               Update Profile
             </NavLink>
-          </li>
+          </li> */}
         </ul>
       </div>
     </div>

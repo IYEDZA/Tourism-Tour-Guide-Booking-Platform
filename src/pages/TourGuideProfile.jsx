@@ -3,7 +3,8 @@ import { use, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
   FaEnvelope, FaPhone, FaMapMarkerAlt, FaStar,
-  FaLanguage, FaUserTie, FaFacebook, FaInstagram, FaClock
+  FaLanguage, FaUserTie,  FaInstagram, FaClock,
+  FaFacebookF
 } from "react-icons/fa";
 import Authcontext from "../context/Authcontext";
 import useUserRole from "../hooks/useUserRole";
@@ -55,12 +56,12 @@ const TourGuideProfilePage = () => {
 
   const {role} = useUserRole()
   const axiosInstance = useAxios();
-  console.log(role)
+  // console.log(role)
 
   const { data: users = [] } = useQuery({
     queryKey: ["my-profile", user?.email],
     queryFn: async () => {
-      const res = await axiosInstance.get(`/stories?role=${role}`);
+      const res = await axiosInstance.get(`/stories?role=tourGuide`);
       return res.data;
     },
     enabled: !!user?.email,
@@ -115,16 +116,16 @@ const TourGuideProfilePage = () => {
                   <p className="text-gray-600 mb-2">{guide.bio}</p>
                   <div className="flex flex-wrap gap-3 text-sm mt-2 justify-center lg:justify-start">
                     <span className="flex items-center gap-2"><FaEnvelope /> {guide.email}</span>
-                    <span className="flex items-center gap-2"><FaPhone /> {guide.phone}</span>
-                    <span className="flex items-center gap-2"><FaMapMarkerAlt /> {guide.location}</span>
-                    <span className="flex items-center gap-2"><FaStar className="text-yellow-400" /> {guide.rating} / 5</span>
+                    <span className="flex items-center gap-2"><FaPhone /> {guide?.phone}</span>
+                    <span className="flex items-center gap-2"><FaMapMarkerAlt /> {guide?.location}</span>
+                    <span className="flex items-center gap-2"><FaStar className="text-yellow-400" /> {guide?.rating} / 5</span>
                     <span className="flex items-center gap-2"><FaClock />{guide?.availability}</span>
-                    <span className="flex items-center gap-2"><FaLanguage /> {guide?.languages?.join(", ")}</span>
+                    <span className="flex items-center gap-2"><FaLanguage /> {guide?.languages}</span>
                     <span className="flex items-center gap-2"><FaUserTie /> {guide?.specialty}</span>
                   </div>
                   <div className="flex justify-center lg:justify-start gap-4 mt-3">
-                    <a href={guide.social.facebook} target="_blank" rel="noreferrer" className="text-blue-600 text-lg"><FaFacebook /></a>
-                    <a href={guide.social.instagram} target="_blank" rel="noreferrer" className="text-pink-500 text-lg"><FaInstagram /></a>
+                    <a href={guide?.social?.facebook} target="_blank" rel="noreferrer" className="text-blue-600 text-lg"><FaFacebookF /></a>
+                    <a href={guide?.social?.instagram} target="_blank" rel="noreferrer" className="text-pink-500 text-lg"><FaInstagram /></a>
                   </div>
                 </div>
               </div>
@@ -133,7 +134,7 @@ const TourGuideProfilePage = () => {
               <div className="mt-8">
                 <h3 className="text-xl font-semibold mb-4 text-accent">📘 Tour Stories</h3>
                 <div className="space-y-6">
-                  {guide.stories.map((story, idx) => (
+                  {guide?.stories?.map((story, idx) => (
                     <motion.div
                       key={idx}
                       className="bg-base-100 border-l-4 border-info p-4 rounded shadow-md flex items-center gap-4"
@@ -142,7 +143,7 @@ const TourGuideProfilePage = () => {
                       transition={{ delay: idx * 0.2 }}
                     >
                       <img
-                        src={story.image}
+                        src={story?.image}
                         alt={story.title}
                         className="w-20 h-20 object-cover rounded-lg border-2 border-primary"
                       />

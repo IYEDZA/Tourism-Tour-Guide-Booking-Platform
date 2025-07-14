@@ -1,4 +1,4 @@
-import { use, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Swal from "sweetalert2";
 import {
@@ -49,6 +49,15 @@ const initialTours = [
 export default function AssignedToursPage() {
   // const [tours, setTours] = useState(initialTours);
   const [expandedId, setExpandedId] = useState(null);
+// ....................................
+  const [count, setCount] = useState(0)
+     const [itemsPerPage, setItemsPerPage] = useState(10);
+      const [currentPage, setCurrentPage] = useState(0);
+   
+
+
+console.log(count)
+// ................................
 
   const toggleExpand = (id) => {
     setExpandedId((prev) => (prev === id ? null : id));
@@ -62,19 +71,55 @@ const {role} = useUserRole()
   const {user}= use(Authcontext)
   console.log(user)
 
-  const { data: users = [] } = useQuery({
+  const { data: users = [],refetch } = useQuery({
     queryKey: ["my-profile", user?.email],
     queryFn: async () => {
-      const res = await axiosInstance.get(`/booking?email=abcd90@gamil.com`);
+      const res = await axiosInstance.get(`/booking?email=abcd90@gamil.com&page=${currentPage}&size=${itemsPerPage}`);
       return res.data;
     },
     enabled: !!user?.email,
   });
   console.log(users)
-   const [tours, setTours] = useState(users);
-   console.log(tours)
+  //  const [tours, setTours] = useState(users);
+  //  console.log(tours)
+// ....................................${user?.email}
+
+ useEffect( () =>{
+        fetch(`http://localhost:3000/bookingCount?email=abcd90@gamil.com`)
+        .then(res => res.json())
+        .then(data => setCount(data.count))
+    }, [])
+//  const itemsPerPage = 10;
+
+const numberOfPages = Math.ceil(count / itemsPerPage);
+ const pages = [...Array(numberOfPages).keys()];
+
+console.log(pages)
+refetch()
+// ,,,,,,,,,,,,,,,,,,,,,,,,,,
 
 
+ const handleItemsPerPage = e => {
+        const val = parseInt(e.target.value);
+        console.log(val);
+        setItemsPerPage(val);
+        setCurrentPage(0);
+    }
+
+
+    const handlePrevPage = () => {
+        if (currentPage > 0) {
+            setCurrentPage(currentPage - 1);
+        }
+    }
+
+    const handleNextPage = () => {
+        if (currentPage < pages.length - 1) {
+            setCurrentPage(currentPage + 1);
+        }
+    }
+
+// .........................
 
   const handleAccept = async(id, action) => {
   
@@ -113,7 +158,8 @@ const {role} = useUserRole()
   
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 px-4 md:px-8 py-16 text-white">
+  <div>
+      <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 px-4 md:px-8 py-16 text-white">
       {/* Marquee Title */}
       <div className="mb-10">
         <Marquee speed={80} gradient={false} className="text-3xl font-bold text-accent">
@@ -227,5 +273,32 @@ const {role} = useUserRole()
         </table>
       </motion.div>
     </div>
+
+      <div className=' mt-20 text-center mb-16 '>
+          {/*  */}
+                <p className="text-xl mb-6 font-bold">Current page:{currentPage} </p>
+                {/*  */}
+                <button onClick={handlePrevPage} className="ml-3 btn btn-neutral " >Prev</button>
+                {
+                    pages.map(page => <button  
+
+                       className={currentPage == page ? 'bg-amber-400 p-2 btn btn-primary rounded-3xl ml-6' : ' btn btn-primary ml-3'}
+
+                        onClick={() => setCurrentPage(page)}
+                        key={page}
+                    >{page}</button>)
+                }
+
+                {/*  */}
+                <button onClick={handleNextPage} className="ml-3 btn btn-neutral" >Next</button>
+                {/*  */}
+                <select value={itemsPerPage} onChange={handleItemsPerPage} className="ml-3" name="" id="">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    {/* <option value="20">20</option>
+                    <option value="50">50</option> */}
+                </select>
+            </div> 
+  </div>
   );
 }

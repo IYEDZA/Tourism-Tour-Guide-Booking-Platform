@@ -42,9 +42,12 @@ export default function ManageTouristStories() {
         📝 Manage Your Stories
       </motion.h2>
 
-
+<div className="grid lg:grid-cols-2">
+  
       {users.map(mockStories=><MangageTouriststoiesCard mockStories={mockStories}></MangageTouriststoiesCard>)}
        
+</div>
+
     </div>
   );
 }

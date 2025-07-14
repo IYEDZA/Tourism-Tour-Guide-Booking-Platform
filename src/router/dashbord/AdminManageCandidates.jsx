@@ -1,12 +1,13 @@
 
 
 
-import { useEffect, useState } from "react";
+import { use,  useEffect,  useState } from "react";
 import { motion } from "framer-motion";
 import Swal from "sweetalert2";
 import { FaUserCheck, FaUserTimes, FaUserTie, FaEnvelope, FaPaperclip, FaStar, FaUserAlt, FaUserCircle, FaCheck } from "react-icons/fa";
 import useAxios from "../../hooks/useAxios";
 import { useQuery } from "@tanstack/react-query";
+import Authcontext from "../../context/Authcontext";
 
 // Dummy Data
 const admin = [
@@ -31,53 +32,31 @@ const admin = [
 ];
 
 export default function AdminManageCandidates() {
-  const [applications, setApplications] = useState([]);
+  // const [applications, setApplications] = useState([]);
   const axiosSecure = useAxios();
+  
 
+  // ..................................................
+ const [count, setCount] = useState(0)
+     const [itemsPerPage, setItemsPerPage] = useState(10);
+      const [currentPage, setCurrentPage] = useState(0);
+   
+const {user}= use(Authcontext)
 
   const { isPending, data: tourGuide = [], refetch } = useQuery({
     queryKey: ['pending-tourGuides'],
     queryFn: async () => {
-      const res = await axiosSecure.get("/tourGuides/pending");
+      const res = await axiosSecure.get(`/tourGuides/pending?page=${currentPage}&size=${itemsPerPage}`);
       return res.data;
     }
   })
   console.log(tourGuide)
   //  setApplications(tourGuide);
-  if (isPending) {
-    return '...loading'
-  }
+  // if (isPending) {
+  //   return '...loading'
+  // }
 
 
-
-  // const handleAccept = async (app) => {
-  //   try {
-  //     // const roleRes = await fetch(`/api/users/role/${app.userId}`, {
-  //     //   method: "PATCH",
-  //     //   headers: { "Content-Type": "application/json" },
-  //     //   body: JSON.stringify({ role: "Tour Guide" }),
-  //     // });
-
-  //     const status = action === "approve" ? "active" : "rejected"
-  //     await axiosSecure.patch(`/riders/${id}/status`, {
-  //       status,
-  //       email
-  //     });
-
-  //     refetch();
-  //     // const deleteRes = await fetch(`/api/applications/${app._id}`, {
-  //     //   method: "DELETE",
-  //     // });
-
-  //     if (roleRes.ok && deleteRes.ok) {
-  //       setApplications(applications.filter((a) => a._id !== app._id));
-  //       Swal.fire("Accepted!", `${app.name} is now a Tour Guide.`, "success");
-  //     }
-  //   } catch (error) {
-  //     console.error(error);
-  //     Swal.fire("Error!", "Something went wrong!", "error");
-  //   }
-  // };
 
 
   const handleDecision = async (id, action, email) => {
@@ -99,7 +78,7 @@ export default function AdminManageCandidates() {
         email
       });
 
-      refetch();
+      // refetch();
 
       Swal.fire("Success", `Rider ${action}d successfully`, "success");
 
@@ -108,25 +87,52 @@ export default function AdminManageCandidates() {
     }
   };
 
+// .......................................
 
-  // const handleReject = async (app) => {
-  //   try {
-  //     const res = await fetch(`/api/applications/${app._id}`, {
-  //       method: "DELETE",
-  //     });
 
-  //     if (res.ok) {
-  //       setApplications(applications.filter((a) => a._id !== app._id));
-  //       Swal.fire("Rejected!", `Application from ${app.name} deleted.`, "info");
-  //     }
-  //   } catch (error) {
-  //     console.error(error);
-  //     Swal.fire("Error!", "Something went wrong!", "error");
-  //   }
-  // };
+ useEffect( () =>{
+        fetch(`http://localhost:3000/tourGuides/pendingCount`)
+        .then(res => res.json())
+        .then(data => setCount(data.count))
+    }, [])
+
+    console.log(count)
+//  const itemsPerPage = 10;
+
+const numberOfPages = Math.ceil(count / itemsPerPage);
+ const pages = [...Array(numberOfPages).keys()];
+
+console.log(pages)
+refetch()
+// ,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+
+ const handleItemsPerPage = e => {
+        const val = parseInt(e.target.value);
+        console.log(val);
+        setItemsPerPage(val);
+        setCurrentPage(0);
+    }
+
+
+    const handlePrevPage = () => {
+        if (currentPage > 0) {
+            setCurrentPage(currentPage - 1);
+        }
+    }
+
+    const handleNextPage = () => {
+        if (currentPage < pages.length - 1) {
+            setCurrentPage(currentPage + 1);
+        }
+    }
+
+
+
 
   return (
-    <div className="min-h-screen bg-base-100 py-10 px-4 md:px-10 text-white">
+   <div>
+     <div className="min-h-screen bg-base-100 py-10 px-4 md:px-10 text-white">
       {/* Heading */}
       <motion.h1
         initial={{ y: -50, opacity: 0 }}
@@ -220,6 +226,34 @@ export default function AdminManageCandidates() {
         </table>
       </div>
     </div>
+<div className=' mt-10 text-center mb-16 '>
+          {/*  */}
+                <p className="text-xl mb-6 font-bold">Current page:{currentPage} </p>
+                {/*  */}
+                <button onClick={handlePrevPage} className="ml-3 btn btn-neutral " >Prev</button>
+                {
+                    pages.map(page => <button  
+
+                       className={currentPage == page ? 'bg-amber-400 p-2 btn btn-primary rounded-3xl ml-6' : ' btn btn-primary ml-3'}
+
+                        onClick={() => setCurrentPage(page)}
+                        key={page}
+                    >{page}</button>)
+                }
+
+                {/*  */}
+                <button onClick={handleNextPage} className="ml-3 btn btn-neutral" >Next</button>
+                {/*  */}
+                <select value={itemsPerPage} onChange={handleItemsPerPage} className="ml-3" name="" id="">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    {/* <option value="20">20</option>
+                    <option value="50">50</option> */}
+                </select>
+            </div> 
+
+
+   </div>
   );
 }
 
