@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { Link, NavLink, Outlet } from "react-router";
+import useUserRole from "../hooks/useUserRole";
 
 const colors = [
   "text-primary",
@@ -20,6 +21,7 @@ const colors = [
 
 const DashboardLayout = () => {
   const [colorIndex, setColorIndex] = useState(0);
+  const { role, roleLoading } = useUserRole();
 
   // Cycle through colors infinitely every 2 seconds
   useEffect(() => {
@@ -114,6 +116,24 @@ const DashboardLayout = () => {
             </NavLink>
           </li>
 
+
+           {/* {!roleLoading && role === 'tourGuide' && <>
+                      <li>
+            <NavLink
+              to="/dashboard/guide"
+              className={({ isActive }) =>
+                `flex items-center gap-3 text-lg font-semibold transition-colors duration-500 ${
+                  isActive ? colors[colorIndex] : "hover:text-primary"
+                }`
+              }
+            >
+              <FaHome />
+             Tour Guide Dashboard Page
+            </NavLink>
+          </li> 
+                        
+                    </>} */}
+
            <li>
             <NavLink
               to="/dashboard/guide"
@@ -127,6 +147,24 @@ const DashboardLayout = () => {
              Tour Guide Dashboard Page
             </NavLink>
           </li>
+
+          
+           {/* {!roleLoading && role === 'admin' && <>
+                       
+          <li>
+            <NavLink
+              to="/dashboard/admin"
+              className={({ isActive }) =>
+                `flex items-center gap-3 text-lg font-semibold transition-colors duration-500 ${
+                  isActive ? colors[colorIndex] : "hover:text-primary"
+                }`
+              }
+            >
+              <FaMoneyCheckAlt />
+            Admin Dashboard Page
+            </NavLink>
+          </li>
+                    </>} */}
 
           <li>
             <NavLink
@@ -183,19 +221,7 @@ const DashboardLayout = () => {
             </NavLink>
           </li>
 
-          {/* <li>
-            <NavLink
-              to="/dashboard/profile"
-              className={({ isActive }) =>
-                `flex items-center gap-3 text-lg font-semibold transition-colors duration-500 ${
-                  isActive ? colors[colorIndex] : "hover:text-primary"
-                }`
-              }
-            >
-              <FaUserEdit />
-              Update Profile
-            </NavLink>
-          </li> */}
+         
         </ul>
       </div>
     </div>

@@ -11,6 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Link, useLocation, useNavigate } from 'react-router';
 import Authcontext from '../context/Authcontext';
 import useAxios from '../hooks/useAxios';
+import SocialLogin from './SocialLogin';
 
 
 const Register = () => {
@@ -21,7 +22,7 @@ const Register = () => {
    const axiosInstance = useAxios();
    const location = useLocation();
     
-     const from = location.state?.from || '/';
+     const from = location.state || '/';
 
 
   const {
@@ -193,7 +194,9 @@ const Register = () => {
               </Link>
             </p>
           </form>
+          <SocialLogin></SocialLogin>
         </motion.div>
+
       </div>
 
       {/* Animation CSS */}

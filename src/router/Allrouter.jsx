@@ -27,6 +27,7 @@ import TouristBookings from "./dashbord/TouristBookings";
 import Payment from "../pages/Payment";
 import Tripscommponet from "../pages/Tripscommponet";
 import TravelOfferAnnouncement from "../pages/TravelOfferAnnouncement";
+import Forbidden from "../pages/Forbidden";
 
 
 export const router = createBrowserRouter([
@@ -53,6 +54,10 @@ export const router = createBrowserRouter([
         path: 'offers',
         Component: TravelOfferAnnouncement
      },
+     {
+        path: 'forbidden',
+        Component: Forbidden
+      },
       {
          path: 'about',
          Component:AboutUs
@@ -115,7 +120,7 @@ export const router = createBrowserRouter([
 
  {
     path: '/dashboard',
-   element: <DashboardLayout></DashboardLayout>,
+   element:<Privateroute><DashboardLayout></DashboardLayout></Privateroute> ,
     children: [
       {
        index: true,
@@ -123,7 +128,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'tourist',
-        Component: TouristDashboard
+        element:<Privateroute><TouristDashboard></TouristDashboard></Privateroute> ,
       },
 
       {
@@ -148,12 +153,14 @@ export const router = createBrowserRouter([
 
       {
         path: 'guide',
-        Component: TourGuideDashboard
+        // Component: TourGuideDashboard
+         element:<Privateroute><TourGuideDashboard></TourGuideDashboard></Privateroute> 
       },
 
       {
         path: 'admin',
-        Component: AdminDashboardPage
+        // Component: AdminDashboardPage
+         element:<Privateroute><AdminDashboardPage></AdminDashboardPage></Privateroute> 
       },
       {
         path: 'payment/:parcelId',

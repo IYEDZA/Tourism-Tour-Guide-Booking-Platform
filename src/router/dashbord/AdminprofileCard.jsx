@@ -56,6 +56,44 @@ const [admin, setAdmin] = useState(initialAdmin);
 
 //   const {user}= use (Authcontext)
   const  axiosSecure  = useAxios()
+  // ................................
+  const { data: rolecount = [], isLoading, isError, error } = useQuery({
+        queryKey: ["parcelStatusCount"],
+        queryFn: async () => {
+            const res = await axiosSecure.get("/users/roleCount");
+            return res.data;
+        },
+        staleTime: 5 * 60 * 1000, // 5 minutes
+        retry: 1,
+    });
+    console.log(rolecount)
+
+    // ............../payments/total
+    const { data: paycount = {}  } = useQuery({
+        queryKey: ["Count"],
+        queryFn: async () => {
+            const res = await axiosSecure.get("/payments/total");
+            return res.data;
+        },
+        staleTime: 5 * 60 * 1000, // 5 minutes
+        retry: 1,
+    });
+    console.log(paycount)
+
+    // ,,,,,,,,,,,,,,,,,packagesCount
+    const { data: packcount = {}  } = useQuery({
+        queryKey: ["packCount"],
+        queryFn: async () => {
+            const res = await axiosSecure.get("/packagesCount");
+            return res.data;
+        },
+        staleTime: 5 * 60 * 1000, // 5 minutes
+        retry: 1,
+    });
+    console.log(packcount)
+
+
+
 
     const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -94,7 +132,7 @@ const [admin, setAdmin] = useState(initialAdmin);
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 mb-10 z-10 relative">
-        {[
+        {/* {[
           [<FaMoneyCheckAlt />, "Total Payment", stats.totalPayment],
           [<FaUserCheck />, "Tour Guides", stats.totalGuides],
           [<FaBoxOpen />, "Packages", stats.totalPackages],
@@ -111,8 +149,46 @@ const [admin, setAdmin] = useState(initialAdmin);
             <h2 className="text-xl text-black font-bold">{value}</h2>
             <p className="text-info text-sm">{label}</p>
           </div>
-        ))}
+        ))} */}
+
+        {
+          rolecount.map(({ count, role })=> <div
+            // key={}
+            whileHover={{ scale: 1.08, rotate: [0, 2, -2, 0] }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="bg-base-100 p-5 rounded-xl shadow-2xl text-center border border-info hover:shadow-accent snake-border "
+          >
+            <div className="text-3xl text-accent mb-2 animate-bounce"><FaUsers /></div>
+            <h2 className="text-xl text-black font-bold">{count}</h2>
+            <p className="text-info text-sm">{role}</p>
+          </div>)
+          
+}
+
+<div
+            // key={}
+            whileHover ={{ scale: 1.08, rotate: [0, 2, -2, 0] }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="bg-base-100 p-5 rounded-xl shadow-2xl text-center border border-info hover:shadow-accent snake-border "
+          >
+            <div className="text-3xl text-accent mb-2 animate-bounce"><FaMoneyCheckAlt /></div>
+            <h2 className="text-xl text-black font-bold">{paycount.total}</h2>
+            <p className="text-info text-sm">Total payment</p>
+          </div>
+
+          <div
+            // key={}
+            whileHover ={{ scale: 1.08, rotate: [0, 2, -2, 0] }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="bg-base-100 p-5 rounded-xl shadow-2xl text-center border border-info hover:shadow-accent snake-border "
+          >
+            <div className="text-3xl text-accent mb-2 animate-bounce"><FaBoxOpen /></div>
+            <h2 className="text-xl text-black font-bold">{packcount.count}</h2>
+            <p className="text-info text-sm">Total package</p>
+          </div>
       </div>
+
+
 
       {/* Profile Info */}
       <div className="grid lg:grid-cols-3 gap-10 items-start relative z-10">
