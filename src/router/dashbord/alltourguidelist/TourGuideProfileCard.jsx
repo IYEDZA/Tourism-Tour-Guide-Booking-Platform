@@ -83,7 +83,7 @@ const TourGuideProfilecard = ({initialGuide}) => {
             className="relative w-full max-w-sm border-4 border-info rounded-xl overflow-hidden shadow-xl"
           >
             <img
-              src={guide.image}
+              src={guide.photo}
               alt="Tour Guide"
               className="object-cover h-96 w-full"
             />

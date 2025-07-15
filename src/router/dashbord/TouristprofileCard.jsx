@@ -66,7 +66,7 @@ refetch()
             className="relative w-full overflow-hidden border-4 border-info shadow-lg group rounded-xl"
           >
             <img
-              src={user.avatar}
+              src={user.photo}
               alt="User Avatar"
               className="w-full h-80 object-cover group-hover:scale-105 transition duration-700"
             />

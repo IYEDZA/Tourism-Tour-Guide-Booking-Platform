@@ -45,7 +45,7 @@ const dummyStories = [
     title: "City Lights of Tokyo",
     description: "A tech paradise and cultural wonderland all in one place.",
     author: "Noah",
-    image: "https://images.unsplash.com/photo-1504870710485-830d7ab1073e?auto=format&fit=crop&w=800&q=80",
+    image: "https://i.ibb.co/QFp3KvKg/Screenshot-2025-07-15-143038.png",
   },
 ];
 

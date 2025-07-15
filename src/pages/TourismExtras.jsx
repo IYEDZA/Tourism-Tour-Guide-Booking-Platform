@@ -22,18 +22,18 @@ import {
 // import { FaStar, FaMapMarkedAlt, FaUser,  } from "react-icons/fa";
 
 const testimonials = [
-  { name: "Emily Johnson", location: "🇺🇸 USA", occupation: "Photographer", trip: "Mountain Trek", quote: "The Himalayas were breathtaking, and every detail was taken care of!", img: "https://i.ibb.co/Q8bdW3x/testimonial1.jpg", rating: 5 },
-  { name: "Hiro Tanaka", location: "🇯🇵 Japan", occupation: "Wildlife Biologist", trip: "Sundarbans", quote: "Raw nature, vibrant wildlife, and perfect weather!", img: "https://i.ibb.co/pR30LDn/testimonial2.jpg", rating: 4 },
-  { name: "Maria Garcia", location: "🇪🇸 Spain", occupation: "Travel Blogger", trip: "Morocco Culture Tour", quote: "From souks to Sahara nights – I felt alive!", img: "https://i.ibb.co/wNxLZbs/testimonial3.jpg", rating: 5 },
-  { name: "Liam Smith", location: "🇨🇦 Canada", occupation: "Engineer", trip: "Iceland Adventure", quote: "Northern lights felt like a dream come true!", img: "https://i.ibb.co/FDkRp9z/testimonial4.jpg", rating: 5 },
-  { name: "Sara Costa", location: "🇧🇷 Brazil", occupation: "Backpacker", trip: "Amazon River", quote: "The sounds of nature at night gave me peace.", img: "https://i.ibb.co/tJZvZCm/testimonial7.jpg", rating: 5 },
-  { name: "Marco Bianchi", location: "🇮🇹 Italy", occupation: "Chef", trip: "Kenya Safari", quote: "Seeing lions in the wild was surreal!", img: "https://i.ibb.co/hVKKgtH/testimonial6.jpg", rating: 4 },
-  { name: "Ayesha Rahman", location: "🇧🇩 Bangladesh", occupation: "Student", trip: "Bali Beaches", quote: "Sunset yoga on the beach was magical.", img: "https://i.ibb.co/Ytk1cY3/testimonial9.jpg", rating: 5 },
-  { name: "Tom Müller", location: "🇩🇪 Germany", occupation: "Software Dev", trip: "Swiss Alps", quote: "Snowboarding with expert guides!", img: "https://i.ibb.co/vLsqzz9/testimonial10.jpg", rating: 4 },
-  { name: "Chloe Lee", location: "🇰🇷 South Korea", occupation: "Fashion Designer", trip: "Paris Escape", quote: "Stylish, romantic, and unforgettable!", img: "https://i.ibb.co/qCWtHfy/testimonial11.jpg", rating: 5 },
-  { name: "Noah Williams", location: "🇦🇺 Australia", occupation: "Marine Biologist", trip: "Barrier Reef Dive", quote: "I swam with sea turtles and dolphins!", img: "https://i.ibb.co/NFsv5NH/testimonial8.jpg", rating: 5 },
-  { name: "Fatima Khan", location: "🇦🇪 UAE", occupation: "Entrepreneur", trip: "Desert Safari", quote: "Luxury and thrill all in one ride!", img: "https://i.ibb.co/DtFW7Q4/testimonial12.jpg", rating: 5 },
-  { name: "John Smith", location: "🇬🇧 UK", occupation: "Retired Teacher", trip: "Greek Islands", quote: "Calm, culture, and crystal clear waters.", img: "https://i.ibb.co/vsptP60/testimonial13.jpg", rating: 4 },
+  { name: "Emily Johnson", location: "🇺🇸 USA", occupation: "Photographer", trip: "Mountain Trek", quote: "The Himalayas were breathtaking, and every detail was taken care of!", img: "https://i.ibb.co/VWTZkfYH/Screenshot-2025-07-15-144257.png", rating: 5 },
+  { name: "Hiro Tanaka", location: "🇯🇵 Japan", occupation: "Wildlife Biologist", trip: "Sundarbans", quote: "Raw nature, vibrant wildlife, and perfect weather!", img: "https://i.ibb.co/VWTZkfYH/Screenshot-2025-07-15-144257.png", rating: 4 },
+  { name: "Maria Garcia", location: "🇪🇸 Spain", occupation: "Travel Blogger", trip: "Morocco Culture Tour", quote: "From souks to Sahara nights – I felt alive!", img: "https://i.ibb.co/VWTZkfYH/Screenshot-2025-07-15-144257.png", rating: 5 },
+  { name: "Liam Smith", location: "🇨🇦 Canada", occupation: "Engineer", trip: "Iceland Adventure", quote: "Northern lights felt like a dream come true!", img: "https://i.ibb.co/VWTZkfYH/Screenshot-2025-07-15-144257.png", rating: 5 },
+  { name: "Sara Costa", location: "🇧🇷 Brazil", occupation: "Backpacker", trip: "Amazon River", quote: "The sounds of nature at night gave me peace.", img: "https://i.ibb.co/VWTZkfYH/Screenshot-2025-07-15-144257.png", rating: 5 },
+  { name: "Marco Bianchi", location: "🇮🇹 Italy", occupation: "Chef", trip: "Kenya Safari", quote: "Seeing lions in the wild was surreal!", img: "https://i.ibb.co/VWTZkfYH/Screenshot-2025-07-15-144257.png", rating: 4 },
+  { name: "Ayesha Rahman", location: "🇧🇩 Bangladesh", occupation: "Student", trip: "Bali Beaches", quote: "Sunset yoga on the beach was magical.", img: "https://i.ibb.co/VWTZkfYH/Screenshot-2025-07-15-144257.png", rating: 5 },
+  { name: "Tom Müller", location: "🇩🇪 Germany", occupation: "Software Dev", trip: "Swiss Alps", quote: "Snowboarding with expert guides!", img: "https://i.ibb.co/VWTZkfYH/Screenshot-2025-07-15-144257.png", rating: 4 },
+  { name: "Chloe Lee", location: "🇰🇷 South Korea", occupation: "Fashion Designer", trip: "Paris Escape", quote: "Stylish, romantic, and unforgettable!", img: "https://i.ibb.co/VWTZkfYH/Screenshot-2025-07-15-144257.png", rating: 5 },
+  { name: "Noah Williams", location: "🇦🇺 Australia", occupation: "Marine Biologist", trip: "Barrier Reef Dive", quote: "I swam with sea turtles and dolphins!", img: "https://i.ibb.co/VWTZkfYH/Screenshot-2025-07-15-144257.png", rating: 5 },
+  { name: "Fatima Khan", location: "🇦🇪 UAE", occupation: "Entrepreneur", trip: "Desert Safari", quote: "Luxury and thrill all in one ride!", img: "https://i.ibb.co/VWTZkfYH/Screenshot-2025-07-15-144257.png", rating: 5 },
+  { name: "John Smith", location: "🇬🇧 UK", occupation: "Retired Teacher", trip: "Greek Islands", quote: "Calm, culture, and crystal clear waters.", img: "https://i.ibb.co/VWTZkfYH/Screenshot-2025-07-15-144257.png", rating: 4 },
 ];
 
 const experiences = [
@@ -42,7 +42,7 @@ const experiences = [
     desc: "Ride camels, sleep under stars, and dine with Berber tribes.",
     duration: "3 Days",
     price: "$499",
-    image: "https://i.ibb.co/gZzZcg6/sahara.jpg",
+    image: "https://i.ibb.co/gLYvsCTn/Screenshot-2025-07-15-143216.png",
     icon: <FaUmbrellaBeach />, 
     size: " h-[360px]"
   },
@@ -51,7 +51,7 @@ const experiences = [
     desc: "Jungle tours, waterfalls, and tribal storytelling.",
     duration: "5 Days",
     price: "$899",
-    image: "https://i.ibb.co/Xb9B8Xy/amazon.jpg",
+    image: "https://i.ibb.co/3G86ZWQ/Screenshot-2025-07-15-143251.png",
     icon: <FaTree />, 
     size: "row-span-2 h-[480px]"
   },
@@ -60,7 +60,7 @@ const experiences = [
     desc: "Night hikes to summit, meditation at dawn, local tea rituals.",
     duration: "2 Days",
     price: "$349",
-    image: "https://i.ibb.co/X8pK4Lx/fuji.jpg",
+    image: "https://i.ibb.co/8DncBx4Q/Screenshot-2025-07-15-143307.png",
     icon: <FaMountain />, 
     size: "h-[360px]"
   },
@@ -69,7 +69,7 @@ const experiences = [
     desc: "Witness lions, elephants, and vibrant sunsets.",
     duration: "4 Days",
     price: "$749",
-    image: "https://i.ibb.co/V9JqV0L/safari.jpg",
+    image: "https://i.ibb.co/1fr2QLJG/Screenshot-2025-07-15-143445.png",
     icon: <FaBinoculars />, 
     size: " h-[400px]"
   },
@@ -78,7 +78,7 @@ const experiences = [
     desc: "Icebergs, whale sightings, and northern lights show.",
     duration: "7 Days",
     price: "$1,299",
-    image: "https://i.ibb.co/SrMxz8s/cruise.jpg",
+    image: "https://i.ibb.co/8LtLBDwn/Screenshot-2025-07-15-143532.png",
     icon: <FaShip />, 
     size: "h-[370px]"
   },
@@ -87,7 +87,7 @@ const experiences = [
     desc: "Bonfires, stargazing, alpine trails & peaceful mornings.",
     duration: "3 Days",
     price: "$399",
-    image: "https://i.ibb.co/x64r5RQ/camping.jpg",
+    image: "https://i.ibb.co/hJ8Dg4J4/Screenshot-2025-07-15-143546.png",
     icon: <FaCampground />, 
     size: "h-[380px]"
   },
@@ -96,7 +96,7 @@ const experiences = [
     desc: "Coral gardens, turtles, dolphins & underwater photography.",
     duration: "2 Days",
     price: "$599",
-    image: "https://i.ibb.co/2F3BJbr/reef.jpg",
+    image: "https://i.ibb.co/0V8VBByT/Screenshot-2025-07-15-143641.png",
     icon: <FaSwimmer />, 
     size: " h-[300px]"
   },
@@ -105,7 +105,7 @@ const experiences = [
     desc: "Snow-covered passes, cable cars & glacier lakes.",
     duration: "4 Days",
     price: "$799",
-    image: "https://i.ibb.co/jzV2DtH/swiss.jpg",
+    image: "https://i.ibb.co/Xf6wwLwC/Screenshot-2025-07-15-144829.png",
     icon: <FaHiking />, 
     size: "row-span-1 h-[400px]"
   },
@@ -114,7 +114,7 @@ const experiences = [
     desc: "Louvre, croissants, romantic strolls & street musicians.",
     duration: "1 Day",
     price: "$199",
-    image: "https://i.ibb.co/xFGsRNH/paris.jpg",
+    image: "https://i.ibb.co/HDhxX4wc/Screenshot-2025-07-15-143820.png",
     icon: <FaMapMarkedAlt />, 
     size: "col-span-3 h-[360px]"
   }

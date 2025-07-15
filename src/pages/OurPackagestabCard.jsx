@@ -50,7 +50,7 @@ const OurPackagestabCard = ({packages}) => {
                     <Link to={`/pack/${pack._id}`}> <button className='btn btn-primary mt-5'>View deatiles</button></Link>
                   
                  </div>
-                   <img className='w-36 rounded-3xl' src="https://i.ibb.co/xFGSGqK/guide2.jpg" alt="" /> 
+                   <img className='w-36 rounded-3xl' src="https://i.ibb.co/QFp3KvKg/Screenshot-2025-07-15-143038.png" alt="" /> 
                 </div>  
               </motion.div>
             ))}

@@ -13,7 +13,7 @@ const destinations = [
   {
     name: "Sajek Valley",
     location: "Rangamati",
-    image: "https://i.ibb.co/GM0JrF1/sajek.jpg",
+    image: "https://i.ibb.co/zhLqK6Jc/Screenshot-2025-07-15-144808.png",
     icon: <FaMountain className="text-white text-3xl drop-shadow" />,
     description:
       "Sajek is known as the Queen of Hills. Clouds float beneath you. A peaceful paradise for nature lovers.",
@@ -21,7 +21,7 @@ const destinations = [
   {
     name: "Cox's Bazar",
     location: "Chattogram",
-    image: "https://i.ibb.co/wzGpmc6/coxbazar.jpg",
+    image: "https://i.ibb.co/Xf6wwLwC/Screenshot-2025-07-15-144829.png",
     icon: <FaUmbrellaBeach className="text-white text-3xl drop-shadow" />,
     description:
       "Cox's Bazar is the longest uninterrupted natural beach in the world. Perfect for sunset chasers.",
@@ -29,7 +29,7 @@ const destinations = [
   {
     name: "Sundarbans",
     location: "Khulna",
-    image: "https://i.ibb.co/Svz5LZ3/sundarbans.jpg",
+    image: "https://i.ibb.co/CK832J2Q/Screenshot-2025-07-15-144127.png",
     icon: <FaTree className="text-white text-3xl drop-shadow" />,
     description:
       "The world's largest mangrove forest and home to the majestic Royal Bengal Tiger.",
@@ -37,7 +37,7 @@ const destinations = [
   {
     name: "Jaflong",
     location: "Sylhet",
-    image: "https://i.ibb.co/TLkjYBt/jaflong.jpg",
+    image: "https://i.ibb.co/8DncBx4Q/Screenshot-2025-07-15-143307.png",
     icon: <FaWater className="text-white text-3xl drop-shadow" />,
     description:
       "Crystal clear water, floating stones, and views of Meghalaya hills make Jaflong magical.",
@@ -45,7 +45,7 @@ const destinations = [
   {
     name: "Paharpur",
     location: "Naogaon",
-    image: "https://i.ibb.co/jvRpVf3/paharpur.jpg",
+    image: "https://i.ibb.co/nNsJgX5g/cascade-boat-clean-china-natural-rural.jpg",
     icon: <GiTempleGate className="text-white text-3xl drop-shadow" />,
     description:
       "Ruins of the ancient Buddhist monastery, a UNESCO World Heritage site showcasing Bangladesh's rich history.",
@@ -53,7 +53,7 @@ const destinations = [
   {
     name: "Saint Martin's Island",
     location: "Bay of Bengal",
-    image: "https://i.ibb.co/9sKY9qD/saintmartin.jpg",
+    image: "https://i.ibb.co/wrMSnXsB/landscape-tropical-vacation-palm-summer.jpg",
     icon: <GiPalmTree className="text-white text-3xl drop-shadow" />,
     description:
       "A tropical island paradise with coral reefs, coconut trees, and turquoise water.",

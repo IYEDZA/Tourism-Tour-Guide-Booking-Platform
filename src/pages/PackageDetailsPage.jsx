@@ -35,12 +35,12 @@ function TiltCard({ children }) {
 
 // Gallery images with explicit sizes for variety (w = width fraction, h = height px)
 const galleryImages = [
-  { src: "https://images.unsplash.com/photo-1607746882042-944635dfe10e", w: "100%", h: 250 },
-  { src: "https://images.unsplash.com/photo-1607746882042-944635dfe10e", w: "100%", h: 320 },
-  { src: "https://images.unsplash.com/photo-1607746882042-944635dfe10e", w: "100%", h: 200 },
-  { src: "https://images.unsplash.com/photo-1607746882042-944635dfe10e", w: "100%", h: 280 },
-  { src: "https://images.unsplash.com/photo-1607746882042-944635dfe10e", w: "100%", h: 350 },
-  { src: "https://images.unsplash.com/photo-1607746882042-944635dfe10e", w: "100%", h: 230 },
+  { src: "https://i.ibb.co/Y4rPXQ1T/Screenshot-2025-07-15-142804.png", w: "100%", h: 250 },
+  { src: "https://i.ibb.co/JjZx2YkV/Screenshot-2025-07-15-142909.png", w: "100%", h: 320 },
+  { src: "https://i.ibb.co/zhCXQv3g/Screenshot-2025-07-15-142934.png", w: "100%", h: 200 },
+  { src: "https://i.ibb.co/xyLyMvz/Screenshot-2025-07-15-142959.png", w: "100%", h: 280 },
+  { src: "https://i.ibb.co/FbY7tSsW/Screenshot-2025-07-15-143019.png", w: "100%", h: 350 },
+  { src: "https://i.ibb.co/QFp3KvKg/Screenshot-2025-07-15-143038.png", w: "100%", h: 230 },
 ];
 
 const tourPlan = [

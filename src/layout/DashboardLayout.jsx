@@ -8,6 +8,8 @@ import {
 import { useEffect, useState } from "react";
 import { Link, NavLink, Outlet } from "react-router";
 import useUserRole from "../hooks/useUserRole";
+import Navbar from "../pages/Shared/Navbar";
+import Footer from "../pages/Shared/Footer/Footer";
 
 const colors = [
   "text-primary",
@@ -32,7 +34,9 @@ const DashboardLayout = () => {
   }, []);
 
   return (
-    <div className="drawer lg:drawer-open">
+    <div>
+      <Navbar></Navbar>
+      <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
 
       <div className="drawer-content flex flex-col">
@@ -224,6 +228,8 @@ const DashboardLayout = () => {
          
         </ul>
       </div>
+    </div>
+    <Footer></Footer>
     </div>
   );
 };

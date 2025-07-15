@@ -90,7 +90,7 @@ console.log(itineraryArray);
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <label className="flex flex-col">
-            <span className="flex items-center gap-2">
+            <span className="flex items-center gap-2 text-black">
               <FaRegEdit /> Title
             </span>
             <input
@@ -103,7 +103,7 @@ console.log(itineraryArray);
           </label>
 
           <label className="flex flex-col">
-            <span className="flex items-center gap-2">
+            <span className="flex items-center gap-2  text-black">
               <FaMapMarkedAlt /> Location
             </span>
             <input
@@ -116,7 +116,7 @@ console.log(itineraryArray);
           </label>
 
           <label className="flex flex-col">
-            <span className="flex items-center gap-2">
+            <span className="flex items-center gap-2  text-black">
               <FaTags /> Price
             </span>
             <input
@@ -129,7 +129,7 @@ console.log(itineraryArray);
           </label>
 
           <label className="flex flex-col">
-            <span className="flex items-center gap-2">
+            <span className="flex items-center gap-2  text-black">
               <FaCalendarAlt /> Duration
             </span>
             <input
@@ -142,7 +142,7 @@ console.log(itineraryArray);
           </label>
 
           <label className="flex flex-col">
-            <span className="flex items-center gap-2">
+            <span className="flex items-center gap-2  text-black">
               <FaInstagramSquare /> Travel Type
             </span>
             <input
@@ -154,7 +154,7 @@ console.log(itineraryArray);
           </label>
 
           <label className="flex flex-col">
-            <span className="flex items-center gap-2">
+            <span className="flex items-center gap-2  text-black">
               <FaUsers /> Max People
             </span>
             <input
@@ -170,7 +170,7 @@ console.log(itineraryArray);
           </label>
 
           <label className="flex flex-col">
-            <span className="flex items-center gap-2">
+            <span className="flex items-center gap-2  text-black">
               <FaStar /> Rating
             </span>
             <input
@@ -189,20 +189,20 @@ console.log(itineraryArray);
           </label>
 
           <label className="flex flex-col">
-            <span className="flex items-center gap-2">
-              <FaUserTie /> Guide
+            <span className="flex items-center gap-2  text-black">
+              <FaUserTie /> Speciality
             </span>
             <input
               type="text"
-              {...register("guide")}
+              {...register("speciality")}
               className="input input-bordered w-full text-black"
-              placeholder="Guide Name"
+              placeholder="speciality........"
             />
           </label>
         </div>
 
         <label className="flex flex-col">
-          <span className="flex items-center gap-2">
+          <span className="flex items-center gap-2 text-black">
             <FaImage /> Images
           </span>
           <input
@@ -214,7 +214,7 @@ console.log(itineraryArray);
         </label>
 
         <label className="flex flex-col">
-          <span className="flex items-center gap-2">
+          <span className="flex items-center gap-2 text-black">
             <FaFileAlt /> Description
           </span>
           <textarea
@@ -226,7 +226,7 @@ console.log(itineraryArray);
         </label>
 
         <label className="flex flex-col">
-          <span className="flex items-center gap-2">
+          <span className="flex items-center gap-2 text-black">
             <FaCalendarAlt /> Itinerary
           </span>
           <textarea
