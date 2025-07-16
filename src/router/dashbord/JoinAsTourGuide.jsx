@@ -11,6 +11,7 @@ export default function JoinAsTourGuide() {
   const axiosIn = useAxios();
   const {user}=use (Authcontext)
   console.log(user.displayName)
+// ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 
   const handleSubmit =async (e) => {
     e.preventDefault();
@@ -20,6 +21,8 @@ export default function JoinAsTourGuide() {
     //   //  :user.email
       
     // };
+
+    // ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
     const name = user.displayName
     const touremail =user.email
       const title= form.tourGuideTitle.value;
@@ -30,6 +33,7 @@ export default function JoinAsTourGuide() {
       const role = "tourist"
      const  createdAt= new Date().toISOString();
 
+// ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 
       const tourGuidedata = { name ,touremail,title,experience,description,cv,createdAt,status,role}
       console.log(tourGuidedata)
@@ -50,6 +54,7 @@ export default function JoinAsTourGuide() {
         <h2 className="text-4xl font-extrabold text-center text-accent mb-10 animate-pulse">
           🧳 Apply to Become a Tour Guide
         </h2>
+{/* ,,,,,,,,,,,,,,,,,,,,,,, */}
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
