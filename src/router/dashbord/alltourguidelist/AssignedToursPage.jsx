@@ -17,34 +17,7 @@ import useAxios from "../../../hooks/useAxios";
 import Authcontext from "../../../context/Authcontext";
 import { useQuery } from "@tanstack/react-query";
 
-const initialTours = [
-  {
-    id: 1,
-    packageName: "Mystic Mountains",
-    touristName: "John Doe",
-    date: "2025-07-20",
-    price: "$500",
-    status: "in-review",
-    extraDetails: {
-      location: "Nepal",
-      guideNotes: "Bring hiking boots and warm clothes.",
-      contact: "john@example.com",
-    },
-  },
-  {
-    id: 2,
-    packageName: "Cultural Wonders",
-    touristName: "Emily Smith",
-    date: "2025-07-25",
-    price: "$700",
-    status: "pending",
-    extraDetails: {
-      location: "Thailand",
-      guideNotes: "Focus on temple etiquette.",
-      contact: "emily@example.com",
-    },
-  },
-];
+
 
 export default function AssignedToursPage() {
   // const [tours, setTours] = useState(initialTours);
