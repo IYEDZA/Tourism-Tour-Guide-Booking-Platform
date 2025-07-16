@@ -16,6 +16,7 @@ export default function ManageTouristStories() {
   const {role} =useUserRole()
   const axiosInstance = useAxios();
   console.log(role)
+// ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 
   const { data: users = [] } = useQuery({
     queryKey: ["my-profile", user?.email],
@@ -41,6 +42,7 @@ export default function ManageTouristStories() {
       >
         📝 Manage Your Stories
       </motion.h2>
+{/* ,,,,,,,,,,,,,,,,,,,,,,,, */}
 
 <div className="grid  ">
   
