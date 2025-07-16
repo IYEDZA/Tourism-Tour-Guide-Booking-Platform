@@ -105,6 +105,7 @@ const DashboardLayout = () => {
             </NavLink>
           </li>
           
+{/* ,,,,,,,,,,,1,,,,,,,,,,,,,, */}
 
            {!roleLoading && role === 'tourist' && <>
                       <li>
@@ -139,6 +140,7 @@ const DashboardLayout = () => {
             </NavLink>
           </li> */}
 
+{/* ,,,,,,,,,,,,2,,,,,,,,,,,,,,,,,, */}
 
            {!roleLoading && role === 'tourGuide' && <>
                       <li>
@@ -171,7 +173,8 @@ const DashboardLayout = () => {
             </NavLink>
           </li> */}
 
-          
+          {/* ,,,,,,,,,,,,,,,,,,,, */}
+
            {!roleLoading && role === 'admin' && <>
                        
           <li>
@@ -189,19 +192,7 @@ const DashboardLayout = () => {
           </li>
                     </>}
 
-          {/* <li>
-            <NavLink
-              to="/dashboard/admin"
-              className={({ isActive }) =>
-                `flex items-center gap-3 text-lg font-semibold transition-colors duration-500 ${
-                  isActive ? colors[colorIndex] : "hover:text-primary"
-                }`
-              }
-            >
-              <FaMoneyCheckAlt />
-            Admin Dashboard Page
-            </NavLink>
-          </li> */}
+         
 
            <li>
             <NavLink
