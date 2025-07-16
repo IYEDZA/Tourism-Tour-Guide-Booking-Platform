@@ -80,10 +80,10 @@ const {user}= use(Authcontext)
 
       // refetch();
 
-      Swal.fire("Success", `Rider ${action}d successfully`, "success");
+      Swal.fire("Success", ` ${action}d successfully`, "success");
 
     } catch (err) {
-      Swal.fire("Error", "Could not update rider status", err);
+      Swal.fire("Error", "Could not update  status", err);
     }
   };
 

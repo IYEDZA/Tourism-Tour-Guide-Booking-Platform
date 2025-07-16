@@ -62,12 +62,12 @@ const CommunityPage = () => {
   console.log(role)
 
   const { data: users = [] } = useQuery({
-    queryKey: ["my-profile", user?.email],
+    queryKey: ["my-profile"],
     queryFn: async () => {
       const res = await axiosInstance.get(`/stories`);
       return res.data;
     },
-    enabled: !!user?.email,
+    // enabled: !!user?.email,
   });
 
   console.log(users)

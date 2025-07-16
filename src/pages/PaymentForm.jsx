@@ -131,7 +131,7 @@ const PaymentForm = () => {
                         //     }
                         // )
                     // ✅ Redirect to /myParcels
-                    // navigate('/dashboard/myParcels');
+                     navigate('/dashboard/bookings');
 
                 }
             }

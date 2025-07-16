@@ -1,7 +1,7 @@
 import axios from "axios";
-
+// http://localhost:3000
 const axiosInstance = axios.create({
-    baseURL: `http://localhost:3000`
+    baseURL: `https://my-as-12-tourist-server.vercel.app`
 })
 
 const useAxios = () => {
