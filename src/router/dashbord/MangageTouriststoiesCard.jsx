@@ -60,7 +60,7 @@ const MangageTouriststoiesCard = ({mockStories}) => {
            <div className="mb-6">
      
         
-      <div className="ml-5 gap-10 grid grid-cols-1  ">
+      <div className="ml-5 gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2  ">
       
       
          

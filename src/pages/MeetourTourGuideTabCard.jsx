@@ -38,9 +38,9 @@ const MeetourTourGuideTabCard = ({guides}) => {
                                 className="w-20 h-20 rounded-full border-4 border-primary object-cover"
                               />
                               <div>
-                                <h4 className="text-xl font-semibold">{guide.name}</h4>
-                                <p className="text-gray-600">{guide?.experience}</p>
-                                 <p className="text-gray-600">{guide?.specialty}</p>
+                                <h4 className="text-xl font-semibold">Name:{guide.name}</h4>
+                                <p className="text-gray-600">experience:{guide?.experience}</p>
+                                 <p className="text-gray-600">specialty:{guide?.specialty}</p>
                                 
                               </div>
                              
