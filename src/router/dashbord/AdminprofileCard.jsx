@@ -92,7 +92,7 @@ const [admin, setAdmin] = useState(initialAdmin);
     });
     console.log(packcount)
 
-
+// ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 
 
     const handleChange = (e) => {
@@ -104,6 +104,7 @@ const [admin, setAdmin] = useState(initialAdmin);
     setAdmin(formData);
 
     console.log(formData)
+// ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 
      const admindata   =  axiosSecure.patch(`/users/${admin._id}`,formData)
      Swal.fire({
