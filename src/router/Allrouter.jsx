@@ -178,16 +178,8 @@ export const router = createBrowserRouter([
 //         Component: TrackParcel
 //       },
 //       // rider only routes
-//       {
-//         path: 'pending-deliveries',
-//         element: <RiderRoute><PendingDeliveries></PendingDeliveries></RiderRoute>
-//       },
-//       {
-//         path: 'completed-deliveries',
-//         element: <RiderRoute>
-//           <CompletedDeliveries></CompletedDeliveries>
-//         </RiderRoute>
-//       },
+//       
+//      
 //       {
 //         path: 'my-earnings',
 //         element: <RiderRoute>
@@ -195,22 +187,9 @@ export const router = createBrowserRouter([
 //         </RiderRoute>
 //       },
 //       // admin only routes
-//       {
-//         path: 'assign-rider',
-//         element: <AdminRoute><AssignRider></AssignRider></AdminRoute>
-//       },
-//       {
-//         path: 'pending-riders',
-//         element: <AdminRoute><PendingRiders></PendingRiders></AdminRoute>
-//       },
-//       {
-//         path: 'active-riders',
-//         element: <AdminRoute><ActiveRiders></ActiveRiders></AdminRoute>
-//       },
-//       {
-//         path: 'makeAdmin',
-//         element: <AdminRoute><MakeAdmin></MakeAdmin></AdminRoute>
-//       }
+    
+   
+
    ]
   }
 ]);
