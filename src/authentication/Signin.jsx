@@ -119,8 +119,8 @@ const Signin = () => {
               </div>
 
               <div className="form-control">
-                <label className="cursor-pointer flex items-center gap-2">
-                  <input type="checkbox" {...register('terms')} className="checkbox checkbox-sm" />
+                <label className="cursor-pointer flex items-center gap-2 text-black">
+                  <input type="checkbox" {...register('terms')} className="checkbox checkbox-sm text-black bg-amber-300" />
                   Accept Terms & Conditions
                 </label>
               </div>
