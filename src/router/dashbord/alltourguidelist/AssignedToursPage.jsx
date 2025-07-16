@@ -61,7 +61,7 @@ const {role} = useUserRole()
         fetch(`https://my-as-12-tourist-server.vercel.app/bookingCount?email=${user?.email}`)
         .then(res => res.json())
         .then(data => setCount(data.count))
-    }, [])
+    }, [ ])
 //  const itemsPerPage = 10;
 
 const numberOfPages = Math.ceil(count / itemsPerPage);
@@ -221,6 +221,7 @@ refetch()
                     </button>
                   </td>
                 </motion.tr>
+{/* ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,, */}
 
                 <AnimatePresence>
                   {expandedId === tour.id && (
@@ -246,6 +247,8 @@ refetch()
         </table>
       </motion.div>
     </div>
+{/* ......................... */}
+
 
       <div className=' mt-20 text-center mb-16 '>
           {/*  */}
