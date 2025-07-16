@@ -58,7 +58,7 @@ const {role} = useUserRole()
 // ...................................
 
  useEffect( () =>{
-        fetch(`http://localhost:3000/bookingCount?email=${user?.email}`)
+        fetch(`https://my-as-12-tourist-server.vercel.app/bookingCount?email=${user?.email}`)
         .then(res => res.json())
         .then(data => setCount(data.count))
     }, [])
