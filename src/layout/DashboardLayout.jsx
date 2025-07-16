@@ -106,7 +106,26 @@ const DashboardLayout = () => {
           </li>
           
 
-          <li>
+           {!roleLoading && role === 'tourist' && <>
+                      <li>
+                        <NavLink
+              to="/dashboard/tourist"
+              className={({ isActive }) =>
+                `flex items-center gap-3 text-lg font-semibold transition-colors duration-500 ${
+                  isActive ? colors[colorIndex] : "hover:text-primary"
+                }`
+              }
+            >
+              <FaBoxOpen />
+             Tourist Dashboard Page 
+            </NavLink>
+            
+          </li> 
+                        
+                    </>}
+
+
+          {/* <li>
             <NavLink
               to="/dashboard/tourist"
               className={({ isActive }) =>
@@ -118,10 +137,10 @@ const DashboardLayout = () => {
               <FaBoxOpen />
              Tourist Dashboard Page 
             </NavLink>
-          </li>
+          </li> */}
 
 
-           {/* {!roleLoading && role === 'tourGuide' && <>
+           {!roleLoading && role === 'tourGuide' && <>
                       <li>
             <NavLink
               to="/dashboard/guide"
@@ -136,9 +155,9 @@ const DashboardLayout = () => {
             </NavLink>
           </li> 
                         
-                    </>} */}
+                    </>}
 
-           <li>
+           {/* <li>
             <NavLink
               to="/dashboard/guide"
               className={({ isActive }) =>
@@ -150,10 +169,10 @@ const DashboardLayout = () => {
               <FaHome />
              Tour Guide Dashboard Page
             </NavLink>
-          </li>
+          </li> */}
 
           
-           {/* {!roleLoading && role === 'admin' && <>
+           {!roleLoading && role === 'admin' && <>
                        
           <li>
             <NavLink
@@ -168,9 +187,9 @@ const DashboardLayout = () => {
             Admin Dashboard Page
             </NavLink>
           </li>
-                    </>} */}
+                    </>}
 
-          <li>
+          {/* <li>
             <NavLink
               to="/dashboard/admin"
               className={({ isActive }) =>
@@ -182,7 +201,7 @@ const DashboardLayout = () => {
               <FaMoneyCheckAlt />
             Admin Dashboard Page
             </NavLink>
-          </li>
+          </li> */}
 
            <li>
             <NavLink

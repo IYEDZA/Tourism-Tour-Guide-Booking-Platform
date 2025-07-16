@@ -28,6 +28,9 @@ import Payment from "../pages/Payment";
 import Tripscommponet from "../pages/Tripscommponet";
 import TravelOfferAnnouncement from "../pages/TravelOfferAnnouncement";
 import Forbidden from "../pages/Forbidden";
+import AdminRoute from "../protectedroutes/AdminRoute";
+import TourGuideRoute from "../protectedroutes/TourGuideRoute";
+import TouristRoute from "../protectedroutes/TouristRoute";
 
 
 export const router = createBrowserRouter([
@@ -128,7 +131,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'tourist',
-        element:<Privateroute><TouristDashboard></TouristDashboard></Privateroute> ,
+        element:<TouristRoute><TouristDashboard></TouristDashboard></TouristRoute> ,
       },
 
       {
@@ -154,13 +157,13 @@ export const router = createBrowserRouter([
       {
         path: 'guide',
         // Component: TourGuideDashboard
-         element:<Privateroute><TourGuideDashboard></TourGuideDashboard></Privateroute> 
+         element:<TourGuideRoute><TourGuideDashboard></TourGuideDashboard></TourGuideRoute> 
       },
 
       {
         path: 'admin',
         // Component: AdminDashboardPage
-         element:<Privateroute><AdminDashboardPage></AdminDashboardPage></Privateroute> 
+         element:<AdminRoute><AdminDashboardPage></AdminDashboardPage></AdminRoute>
       },
       {
         path: 'payment/:parcelId',

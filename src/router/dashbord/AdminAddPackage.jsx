@@ -29,7 +29,7 @@ export default function AdminAddPackage() {
 
   const onSubmit = async(data) => {
 
-    const  {title, location,price,duration,travelType,maxPeople,rating,guide, images,description,itinerary}= data
+    const  {title, location,price,duration,travelType,maxPeople,rating, images,description,itinerary,cover,speciality}= data
   //   // 👇 Convert comma-separated image URLs to image1, image2, ...
   // const imageArray = images.split(",").map(url => url.trim());
   // const imageObject = {};
@@ -54,7 +54,7 @@ const imageArray = images.split(",").map(url => url.trim());
 
 console.log(itineraryArray);
 
-    const packageinfo = {title, location,price,duration,travelType,maxPeople,rating,guide, images:imageArray,description,itinerary:itineraryArray}
+    const packageinfo = {title, location,price,duration,travelType,maxPeople,rating,cover, images:imageArray,description,speciality,itinerary:itineraryArray}
 
     
      const userRes = await axiosInstance.post('/packages', packageinfo);
@@ -200,6 +200,17 @@ console.log(itineraryArray);
             />
           </label>
         </div>
+        <label className="flex flex-col">
+          <span className="flex items-center gap-2 text-black">
+            <FaImage />Cover Images
+          </span>
+          <input
+            type="text"
+            {...register("cover")}
+            className="input input-bordered w-full text-black"
+            placeholder="Cover Image URLs ........."
+          />
+        </label>
 
         <label className="flex flex-col">
           <span className="flex items-center gap-2 text-black">

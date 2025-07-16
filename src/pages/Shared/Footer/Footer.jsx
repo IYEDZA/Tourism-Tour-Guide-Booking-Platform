@@ -62,7 +62,7 @@ const Footer = () => {
         <div className="text-center">
           <h3 className="text-lg font-semibold mb-3 text-white animate-bounce">Follow Me</h3>
           <div className="flex justify-center gap-5 text-2xl">
-            <motion.a whileHover={{ scale: 1.3, rotate: 5 }} href="https://facebook.com" target="_blank" className="text-[#1877F2]"><FaFacebookF /></motion.a>
+            <motion.a whileHover={{ scale: 1.3, rotate: 5 }} href="https://www.facebook.com/dipu.borman.3?mibextid=ZbWKwL" target="_blank" className="text-[#1877F2]"><FaFacebookF /></motion.a>
             <motion.a whileHover={{ scale: 1.3, rotate: -5 }} href="https://youtube.com" target="_blank" className="text-[#FF0000]"><FaYoutube /></motion.a>
             <motion.a whileHover={{ scale: 1.3 }} href="mailto:developer@gmail.com" className="text-[#EA4335]"><MdEmail /></motion.a>
             <motion.a whileHover={{ scale: 1.3 }} href="https://github.com/yourusername" target="_blank" className="text-white"><FaGithub /></motion.a>

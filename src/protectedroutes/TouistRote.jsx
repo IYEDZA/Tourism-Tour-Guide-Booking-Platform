@@ -1,9 +1,8 @@
 import React, { use } from 'react';
-import useUserRole from '../hooks/useUserRole';
 import Authcontext from '../context/Authcontext';
-import { Navigate } from 'react-router';
+import useUserRole from '../hooks/useUserRole';
 
-const TourGuideRoute = ({children}) => {
+const TouistRote = ({children}) => {
      const { user, loading } = use(Authcontext);
     const { role, roleLoading } = useUserRole();
 
@@ -11,11 +10,11 @@ const TourGuideRoute = ({children}) => {
         return <span className="loading loading-spinner loading-xl"></span>
     }
 
-    if (!user || role !== 'tourGuide') {
-        return <Navigate state={{ from: location.pathname }} to="/forbidden"></Navigate>
+    if (!user || role !== 'tourist') {
+        return <Navigate state={location.pathname} to="/forbidden"></Navigate>
     }
 
     return children;
 };
 
-export default TourGuideRoute;
+export default TouistRote;

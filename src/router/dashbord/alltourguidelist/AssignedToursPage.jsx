@@ -74,7 +74,7 @@ const {role} = useUserRole()
   const { data: users = [],refetch } = useQuery({
     queryKey: ["my-profile", user?.email],
     queryFn: async () => {
-      const res = await axiosInstance.get(`/booking?email=abcd90@gamil.com&page=${currentPage}&size=${itemsPerPage}`);
+      const res = await axiosInstance.get(`/booking?email=${user?.email}&page=${currentPage}&size=${itemsPerPage}`);
       return res.data;
     },
     enabled: !!user?.email,
@@ -82,10 +82,10 @@ const {role} = useUserRole()
   console.log(users)
   //  const [tours, setTours] = useState(users);
   //  console.log(tours)
-// ....................................${user?.email}
+// ...................................
 
  useEffect( () =>{
-        fetch(`http://localhost:3000/bookingCount?email=abcd90@gamil.com`)
+        fetch(`http://localhost:3000/bookingCount?email=${user?.email}`)
         .then(res => res.json())
         .then(data => setCount(data.count))
     }, [])

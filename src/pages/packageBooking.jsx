@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { motion, AnimatePresence } from "framer-motion";
 import DatePicker from 'react-datepicker';
@@ -14,22 +14,8 @@ const PackageBooking = () => {
   const [selectedGuide, setSelectedGuide] = useState("");
   const [showModal, setShowModal] = useState(false);
   const axiosInstance = useAxios();
-  const { user } = React.useContext(Authcontext);
+  const { user,loading } = use(Authcontext);
   const { id } = useParams();
-
-  // ✅ Fetch Package Info
-  const { data: pack = {} } = useQuery({
-    queryKey: ["package-details", id],
-    queryFn: async () => {
-      const res = await axiosInstance.get(`/packages/${id}`);
-      return res.data;
-    },
-  });
-
-  const {
-    _id, title, location, description, price, duration,
-    travelType, maxPeople, rating, guide, images, itinerary
-  } = pack;
 
   // ✅ Fetch All Tour Guides
   const { data: users = [] } = useQuery({
@@ -39,38 +25,71 @@ const PackageBooking = () => {
       return res.data;
     },
   });
+ const selected = users.find((guide) => guide.email === selectedGuide);
+ console.log(selected)
 
-  // ✅ Fetch Selected Guide Info
-  const { data: tour = {} } = useQuery({
-    queryKey: ["selected-tour-guide", selectedGuide],
+//   // ✅ Fetch Selected Guide Info
+//   const { data: tour = {},isLoading } = useQuery({
+//     queryKey: ["selected"],
+//     queryFn: async () => {
+//       const res = await axiosInstance.get(`/users?email={selectedGuide}`);
+//       return res.data;
+//     },
+//     // enabled: !!selectedGuide,
+//   });
+//  console.log(tour)
+
+  // ✅ Fetch Package Info
+  const { data: pack = {} } = useQuery({
+    queryKey: ["package-details", id],
     queryFn: async () => {
-      const res = await axiosInstance.get(`/users/${selectedGuide}`);
+      const res = await axiosInstance.get(`/packages/${id}`);
       return res.data;
     },
-    enabled: !!selectedGuide,
   });
+// location, description,maxPeople, rating, guide, images, itinerary
+  const {
+    _id, title,  price, duration,
+    travelType, 
+  } = pack;
+
+ 
+
+
+  // if(isLoading){
+  //   return
+  // }
 
   // ✅ Form Logic
+
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
+   
     const bookingData = {
       ...data,
+        tourGuideId:selected._id,
+      // tourGuideEmail: tour?.email,
+       tourGuideName :selected.name,
       tourDate,
       status: "pending",
       packageId: _id,
-      tourGuideId: tour._id,
-      tourGuideEmail: tour.email,
-      tourGuideName :tour.name,
+     
       travelType,
       title,
      packageprice: price
     };
+    console.log(bookingData)
 
     const res = await axiosInstance.post("/booking", bookingData);
+    console.log(res)
+    if(res.data.insertedId){
+    setShowModal(true)
+    }
     console.log("✅ Booking Data:", bookingData);
-    setShowModal(true);
+    
   };
+  ;
 
   return (
     <div className="relative z-10">
@@ -119,37 +138,47 @@ const PackageBooking = () => {
         />
 
         <select
-          {...register("selectedGuide")}
+          {...register("tourGuideEmail")}
           required
           className="select select-bordered w-full"
+          // 
           onChange={(e) => setSelectedGuide(e.target.value)}
         >
-          <option disabled value="">Choose a tour guide</option>
+          <option  value="">Choose a tour guide</option>
           {users.map((guide) => (
-            <option key={guide._id} value={guide._id}>{guide.name}</option>
+            // value={guide._id}
+            <option key={guide._id} value={guide.email}>{guide.name}</option>
           ))}
         </select>
 
         {/* 👤 Selected Tour Guide Info */}
-        {selectedGuide && tour && (
+        {selectedGuide  && (
           <motion.div
             className="bg-purple-50 border-l-4 border-purple-500 p-4 rounded-lg shadow-inner"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <h3 className="text-lg font-semibold text-purple-800 mb-1">{tour.name}</h3>
-            <p className="text-sm"><strong>📍 Location:</strong> {tour.location}</p>
+            <h3 className="text-lg font-semibold text-purple-800 mb-1">{selectedGuide}</h3>
+            {/* <p className="text-sm"><strong>📍 Location:</strong> {tour.location}</p>
             <p className="text-sm"><strong>📞 Phone:</strong> {tour.phone}</p>
             <p className="text-sm"><strong>💼 Experience:</strong> {tour.experience}</p>
             <p className="text-sm"><strong>🎯 Specialty:</strong> {tour.specialty}</p>
-            <p className="text-sm"><strong>🌐 Languages:</strong> {tour.languages?.join(", ")}</p>
+            <p className="text-sm"><strong>🌐 Languages:</strong> {tour.languages?.join(", ")}</p> */}
           </motion.div>
         )}
-
-        <button type="submit" className="btn btn-accent w-full mt-4">
+     
+     {
+      user?.email?(<button type="submit" className="btn btn-accent w-full mt-4">
           Book Now
-        </button>
+        </button>):( <Link to='/login'><button className="btn btn-accent w-full mt-4">
+         You can not  Booking login now
+        </button></Link>)
+     }
+        {/* <button type="submit" className="btn btn-accent w-full mt-4">
+          Book Now
+        </button> */}
+       
       </motion.form>
 
       {/* ✅ Booking Confirmation Modal */}
