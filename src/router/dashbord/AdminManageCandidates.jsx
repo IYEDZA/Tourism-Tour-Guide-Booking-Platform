@@ -91,7 +91,7 @@ const {user}= use(Authcontext)
 
 
  useEffect( () =>{
-        fetch(`http://localhost:3000/tourGuides/pendingCount`)
+        fetch(`https://my-as-12-tourist-server.vercel.app/tourGuides/pendingCount`)
         .then(res => res.json())
         .then(data => setCount(data.count))
     }, [])
