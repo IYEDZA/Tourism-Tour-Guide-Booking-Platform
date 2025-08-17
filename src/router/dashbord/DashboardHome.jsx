@@ -67,7 +67,7 @@ export default function DashboardHome() {
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.6 }}
-        className="text-4xl font-extrabold text-center mb-10 text-emerald-600 drop-shadow-lg"
+        className="text-3xl font-extrabold text-center mb-10  drop-shadow-lg"
       >
         Explore the Beauty of Bangladesh 🇧🇩
       </motion.h2>
@@ -118,7 +118,7 @@ export default function DashboardHome() {
         <motion.button
           whileHover={{ scale: 1.1, rotate: 2 }}
           whileTap={{ scale: 0.95 }}
-          className="btn bg-gradient-to-r from-green-500 to-blue-500 text-white text-lg font-semibold px-8 py-3 rounded-full shadow-xl"
+          className="btn bg-primary text-white text-lg font-semibold px-8 py-3 rounded-full shadow-xl"
         >
           <MdOutlineTravelExplore className="inline-block mr-2" />
           Explore More Destinations

@@ -73,7 +73,7 @@ const PackagesDeatilesCard = () => {
               key={currentImg}
               src={currentImg}
               alt="Package"
-              className="w-full h-[300px] object-cover rounded-2xl border-4 border-purple-400 shadow-xl"
+              className="w-full h-[300px] object-cover rounded-2xl border-1 border-purple-400 shadow-xl"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6 }}
@@ -84,7 +84,7 @@ const PackagesDeatilesCard = () => {
                   key={idx}
                   src={img}
                   alt={`thumb-${idx}`}
-                  className={`w-20 h-16 rounded-lg border-2 cursor-pointer hover:scale-105 duration-300 ${
+                  className={`w-20 h-16 rounded-lg border-1 cursor-pointer hover:scale-105 duration-300 ${
                     currentImg === img ? 'border-purple-600' : 'border-gray-300'
                   }`}
                   whileHover={{ scale: 1.1 }}
@@ -99,7 +99,7 @@ const PackagesDeatilesCard = () => {
             className="flex-1 bg-gradient-to-br from-indigo-100 to-purple-100 p-6 rounded-xl shadow-xl border border-purple-300"
             variants={fadeIn("right", 0.2)}
           >
-            <h2 className="text-2xl font-semibold text-purple-700 mb-4">Package Details</h2>
+            <h2 className="text-2xl font-semibold text-black  mb-4">Package Details</h2>
             <div className="space-y-3 text-gray-800">
               <p className="flex items-center gap-3 text-md"><FaMapMarkerAlt className="text-pink-500" /> <strong>Location:</strong> {location}</p>
               <p className="flex items-center gap-3 text-md"><FaUsers className="text-blue-500" /> <strong>Max People:</strong> {maxPeople}</p>
@@ -114,19 +114,19 @@ const PackagesDeatilesCard = () => {
 
         {/* 📝 Description */}
         <motion.div
-          className="mt-10 bg-white rounded-xl p-6 shadow-lg border-t-4 border-purple-300"
+          className="mt-10 bg-base-200 rounded-xl p-6 shadow-lg border-t-4 "
           variants={fadeIn("up", 0.3)}
         >
-          <h3 className="text-xl font-bold text-purple-700 mb-2">Description</h3>
+          <h3 className="text-xl font-bold  mb-2">Description</h3>
           <p className="text-gray-700">{description}</p>
         </motion.div>
 
         {/* 📅 Itinerary */}
         <motion.div
-          className="mt-8 bg-purple-50 p-6 rounded-lg shadow-inner border"
+          className="mt-8 bg-base-200 p-6 rounded-lg shadow-inner border"
           variants={fadeIn("up", 0.4)}
         >
-          <h3 className="text-xl font-bold text-purple-700 mb-4">Itinerary</h3>
+          <h3 className="text-xl font-bold mb-4">Itinerary</h3>
           <ul className="list-disc pl-6 space-y-2 text-gray-700">
             {itinerary?.map((item, index) => (
               <motion.li
@@ -135,7 +135,7 @@ const PackagesDeatilesCard = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.5 + index * 0.1 }}
               >
-                <span className="font-semibold text-purple-600">Day {index + 1}:</span> {item.plan || item.description || 'No detail provided'}
+                <span className="font-semibold">Day {index + 1}:</span> {item.day || item.description || 'No detail provided'}
               </motion.li>
             ))}
           </ul>

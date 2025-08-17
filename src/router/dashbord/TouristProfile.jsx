@@ -15,6 +15,7 @@ import Authcontext from "../../context/Authcontext";
 import useAxios from "../../hooks/useAxios";
 
 import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 export default function ManageTouristProfile() {
   // const [isOpen, setIsOpen] = useState(false);
@@ -24,6 +25,7 @@ export default function ManageTouristProfile() {
 
   const {user}= use (Authcontext)
   const  axiosSecure  = useAxios()
+  const axiosPrivate = useAxiosSecure()
 
 
   const { data: users = [], refetch } = useQuery({

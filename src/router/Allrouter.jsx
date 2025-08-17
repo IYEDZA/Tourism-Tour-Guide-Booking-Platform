@@ -31,6 +31,7 @@ import Forbidden from "../pages/Forbidden";
 import AdminRoute from "../protectedroutes/AdminRoute";
 import TourGuideRoute from "../protectedroutes/TourGuideRoute";
 import TouristRoute from "../protectedroutes/TouristRoute";
+import DashboardOverview from "../layout/DashboardOverview";
 
 
 export const router = createBrowserRouter([
@@ -97,7 +98,8 @@ export const router = createBrowserRouter([
       },
       {
         path :'/booking/:id',
-        Component:packageBooking
+         Component:packageBooking
+        // element : <Privateroute><packageBooking></packageBooking></Privateroute>
       }
     //   {
     //     path: 'sendParcel',
@@ -133,6 +135,11 @@ export const router = createBrowserRouter([
       {
         path: 'tourist',
         element:<TouristRoute><TouristDashboard></TouristDashboard></TouristRoute> ,
+      },
+      
+      {
+        path: 'overview',
+        Component: DashboardOverview
       },
 
       {

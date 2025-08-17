@@ -25,7 +25,7 @@ import Swal from "sweetalert2";
 //   bio: "Friendly guide with a passion for local culture and mountain adventures. I love helping people explore new places with excitement and safety.",
 // };
 
-const TourGuideProfilecard = ({initialGuide}) => {
+const TourGuideProfilecard = ({initialGuide,refetch}) => {
 
     
       const [guide, setGuide] = useState(initialGuide);
@@ -53,8 +53,10 @@ const TourGuideProfilecard = ({initialGuide}) => {
                title: "Profile Updated!",
                text: `${guide.name}'s profile has been saved.`,
                confirmButtonColor: "#0ea5e9",
-             });
+             }); 
+              refetch()
         setIsOpen(false);
+       
       };
     
 
@@ -70,9 +72,9 @@ const TourGuideProfilecard = ({initialGuide}) => {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
-        className="max-w-6xl mx-auto bg-base-100 rounded-3xl shadow-2xl border-4 border-info p-8"
+        className="max-w-6xl mx-auto  rounded-3xl shadow-2xl  p-8"
       >
-        <h2 className="text-4xl font-bold text-center text-accent mb-10 animate-pulse">
+        <h2 className="text-3xl font-bold text-center  mb-10 animate-pulse">
           👋 Welcome Back, {guide.name}!
         </h2>
 
@@ -80,48 +82,48 @@ const TourGuideProfilecard = ({initialGuide}) => {
           {/* Profile Image */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="relative w-full max-w-sm border-4 border-info rounded-xl overflow-hidden shadow-xl"
+            className="relative w-full max-w-sm border-1 rounded-xl overflow-hidden shadow-xl"
           >
             <img
               src={guide.photo}
               alt="Tour Guide"
               className="object-cover h-96 w-full"
             />
-            <div className="absolute bottom-0 w-full bg-black bg-opacity-70 text-center p-3">
+            <div className="absolute bottom-0 w-full  bg-opacity-70 text-center p-3">
               <h2 className="text-xl font-bold">{guide.name}</h2>
-              <p className="text-sm text-info">{guide.role}</p>
+              <p className="text-sm ">{guide.role}</p>
             </div>
           </motion.div>
 
           {/* Info Section */}
           <div className="flex-1 space-y-4 text-lg">
-            <p className="flex items-center gap-2 text-info">
+            <p className="flex items-center gap-2">
               <FaEnvelope /> {guide.email}
             </p>
-            <p className="flex items-center gap-2 text-info">
+            <p className="flex items-center gap-2 ">
               <FaPhone /> {guide.phone}
             </p>
-            <p className="flex items-center gap-2 text-info">
+            <p className="flex items-center gap-2 ">
               <FaMapMarkerAlt /> {guide.location}
             </p>
-            <h1 className="flex items-center gap-2 text-info"> <FaUserTie /> {guide.experience}</h1>
+            <h1 className="flex items-center gap-2 "> <FaUserTie /> {guide.experience}</h1>
             {/* <p className="flex items-center gap-2 text-info">
              
             </p> */}
-            <p className="flex items-center gap-2 text-yellow-400">
+            <p className="flex items-center gap-2 ">
               <FaStar /> Rating: {guide.rating}
             </p>
-            <div className="flex items-start gap-2 text-info">
+            <div className="flex items-start gap-2 ">
               <FaLanguage /> Languages:
               <div className="flex flex-wrap gap-2 ml-2">
                 {guide?.languages?.map((lang, i) => (
-                  <span key={i} className="badge badge-accent text-white">
+                  <span key={i} className="badge badge-primary text-white">
                     {lang}
                   </span>
                 ))}
               </div>
             </div>
-            <div className="italic border-l-4 border-primary text-black pl-4">{guide.bio}</div>
+            <div className="italic border-l-4 border-primary  pl-4">{guide.bio}</div>
           </div>
         </div>
 
@@ -129,9 +131,9 @@ const TourGuideProfilecard = ({initialGuide}) => {
         <div className="mt-10 text-right">
           <button
             onClick={() => setIsOpen(true)}
-            className="btn btn-secondary px-6 py-2 text-white font-bold hover:scale-105 transition border-2 border-info"
+            className="btn  btn-primary px-6 py-2 text-white font-bold hover:scale-105 transition border-2 border-info"
           >
-            <FaUserEdit className="mr-2" /> Edit Profile
+            <FaUserEdit className="mr-2 " /> Edit Profile
           </button>
         </div>
 
@@ -139,8 +141,8 @@ const TourGuideProfilecard = ({initialGuide}) => {
         <Transition show={isOpen} as={motion.div}>
           <Dialog onClose={() => setIsOpen(false)} className="fixed inset-0 z-50 p-4 overflow-y-auto">
             <div className="flex items-center justify-center min-h-screen">
-              <Dialog.Panel className="w-full max-w-md bg-base-100 text-white rounded-xl p-6 border-4 border-info shadow-2xl">
-                <Dialog.Title className="text-2xl font-bold text-accent mb-4">
+              <Dialog.Panel className="w-full max-w-md  bg-base-200 rounded-xl p-6 border-1 shadow-2xl">
+                <Dialog.Title className="text-2xl font-bold  mb-4">
                   Edit Tour Guide Info
                 </Dialog.Title>
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -148,33 +150,33 @@ const TourGuideProfilecard = ({initialGuide}) => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="input input-bordered w-full text-black"
+                    className="input input-bordered w-full "
                     placeholder="Name"
                   />
                   <input
                     name="email"
                     value={formData.email}
                     disabled
-                    className="input w-full bg-gray-200 text-gray-600 cursor-not-allowed"
+                    className="input w-full  cursor-not-allowed"
                   />
                   <input
                     name="role"
                     value={formData.role}
                     disabled
-                    className="input w-full bg-gray-200 text-gray-600 cursor-not-allowed"
+                    className="input w-full  cursor-not-allowed"
                   />
                   <input
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="input input-bordered w-full text-black"
+                    className="input input-bordered w-full "
                     placeholder="Phone"
                   />
                   <input
                     name="location"
                     value={formData.location}
                     onChange={handleChange}
-                    className="input input-bordered w-full text-black"
+                    className="input input-bordered w-full"
                     placeholder="Location"
                   />
 
@@ -182,14 +184,14 @@ const TourGuideProfilecard = ({initialGuide}) => {
                     name="specialty"
                     value={formData.specialty}
                     onChange={handleChange}
-                    className="input input-bordered w-full text-black"
+                    className="input input-bordered w-full  "
                     placeholder="specialty...Wirte............"
                   />
                   <input
                     name="experience"
                     value={formData.experience}
                     onChange={handleChange}
-                    className="input input-bordered w-full text-black"
+                    className="input input-bordered w-full "
                     placeholder="Experience"
                   />
 
@@ -197,34 +199,34 @@ const TourGuideProfilecard = ({initialGuide}) => {
                     name="availability"
                     value={formData.availability}
                     onChange={handleChange}
-                    className="input input-bordered w-full text-black"
+                    className="input input-bordered w-full text-white"
                     placeholder="availability.........."
                   />
                   <input
                     name="rating"
                     value={formData.rating}
                     onChange={handleChange}
-                    className="input input-bordered w-full text-black"
+                    className="input input-bordered w-full "
                     placeholder="Rating"
                   />
                   <input
                     name="languages"
                     value={formData.languages}
                     onChange={handleChange}
-                    className="input input-bordered w-full text-black"
+                    className="input input-bordered w-full  "
                     placeholder="Languages (comma separated)"
                   />
                   <textarea
                     name="bio"
                     value={formData.bio}
                     onChange={handleChange}
-                    className="textarea textarea-bordered w-full text-black"
+                    className="textarea textarea-bordered w-full "
                     placeholder="Bio"
                   ></textarea>
                   <div className="text-right">
                     <button
                       type="submit"
-                      className="btn btn-primary px-6 mt-4 text-white"
+                      className="btn btn-primary px-6 mt-4 "
                     >
                       Save Changes
                     </button>

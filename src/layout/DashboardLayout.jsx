@@ -36,7 +36,7 @@ const DashboardLayout = () => {
   return (
     <div>
       <Navbar></Navbar>
-      <div className="drawer lg:drawer-open">
+      <div className="drawer lg:drawer-open mt-20">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
 
       <div className="drawer-content flex flex-col">
@@ -84,8 +84,8 @@ const DashboardLayout = () => {
           {/* TourZone Logo & Name */}
           <div className="flex items-center justify-center mb-10 space-x-3">
             <span className="text-4xl animate-pulse">🌍</span>
-            <Link to='/'> <h1 className="text-3xl font-extrabold text-gradient bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent select-none">
-              TourZone
+            <Link to='/'> <h1 className="text-3xl font-bold hover:text-primary select-none">
+              WanderSphere
             </h1></Link>
            
           </div>
@@ -95,9 +95,8 @@ const DashboardLayout = () => {
             <NavLink
               to="/dashboard"
               className={({ isActive }) =>
-                `flex items-center gap-3 text-lg font-semibold transition-colors duration-500 ${
-                  isActive ? colors[colorIndex] : "hover:text-primary"
-                }`
+                `flex items-center gap-3 text-lg font-semibold transition-colors duration-500 hover:text-primary`
+                
               }
             >
               <FaHome />
@@ -196,7 +195,7 @@ const DashboardLayout = () => {
 
            <li>
             <NavLink
-              to="/dashboard"
+              to="/dashboard/overview"
               className={({ isActive }) =>
                 `flex items-center gap-3 text-lg font-semibold transition-colors duration-500 ${
                   isActive ? colors[colorIndex] : "hover:text-primary"
@@ -204,11 +203,11 @@ const DashboardLayout = () => {
               }
             >
               <FaHome />
-             Help
+            DashboardOverview
             </NavLink>
           </li>
 
-          <li>
+          {/* <li>
             <NavLink
               to="/dashboard/track"
               className={({ isActive }) =>
@@ -220,8 +219,8 @@ const DashboardLayout = () => {
               <FaSearchLocation />Assked More
               
             </NavLink>
-          </li>
-           <li>
+          </li> */}
+           {/* <li>
             <NavLink
               to="/dashboard"
               className={({ isActive }) =>
@@ -233,7 +232,7 @@ const DashboardLayout = () => {
               <FaHome />
               Settings
             </NavLink>
-          </li>
+          </li> */}
 
          
         </ul>

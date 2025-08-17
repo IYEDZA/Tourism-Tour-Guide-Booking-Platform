@@ -93,7 +93,7 @@ const SingleTourGuideDetails = () => {
           {
             icon: <FaLanguage className="text-indigo-500" />,
             label: 'Languages',
-            value: languages?.join(', ') || 'N/A',
+            value: languages || 'N/A',
           },
         ].map((item, i) => (
           <motion.div

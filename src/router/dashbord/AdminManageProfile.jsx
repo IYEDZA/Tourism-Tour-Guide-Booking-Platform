@@ -59,7 +59,7 @@ export default function AdminManageProfile() {
 
   return (
    <div> {
-    users.map(initialAdmin=><AdminprofileCard initialAdmin={initialAdmin}></AdminprofileCard>)
+    users.map(initialAdmin=><AdminprofileCard refetch={refetch} initialAdmin={initialAdmin}></AdminprofileCard>)
     }
     
    </div>

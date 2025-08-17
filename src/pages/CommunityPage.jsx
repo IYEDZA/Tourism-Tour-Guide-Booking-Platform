@@ -85,17 +85,17 @@ const CommunityPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364] px-6 py-12">
+    <div className="min-h-screen mt-20 px-6 py-12">
       <motion.h1
-        className={`text-4xl font-bold text-center mb-12 transition-colors duration-500 ${textColors[colorIndex]}`}
+        className={`text-3xl font-bold text-center mb-12 transition-colors duration-500 `}
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        🧳 Travel Stories from the TourZone Community
+        🧳 Travel Stories from the wanderSphere Community
       </motion.h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {dummyStories.map((story, index) => (
           <motion.div
             key={story.id}
@@ -104,11 +104,11 @@ const CommunityPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.2 }}
           >
-            {/* 💫 Glow border effect on hover */}
+           
             <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary via-accent to-info blur-md opacity-0 group-hover:opacity-40 transition duration-500 z-0"></div>
 
             <div className="relative z-10">
-              <div className="overflow-hidden rounded-xl mb-4 border-4 border-info transition-all duration-500 group-hover:scale-105 group-hover:border-accent shadow-md">
+              <div className="overflow-hidden rounded-xl mb-4 border-1 border-info transition-all duration-500 group-hover:scale-105 group-hover:border-accent shadow-md">
                 <img
                   src={story.image}
                   alt={story.title}
@@ -145,8 +145,8 @@ const CommunityPage = () => {
             </div>
           </motion.div>
         ))}
-      </div>
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-5 mb-3">
+      </div> */}
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-5 ">
             {users.map(Card=><CommunitypageCard Card={Card}></CommunitypageCard>)}
            </div>
       

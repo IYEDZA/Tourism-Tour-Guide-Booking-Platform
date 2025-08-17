@@ -33,7 +33,7 @@ const AboutUs = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-base-200 px-6 py-16">
+    <div className="min-h-screen bg-base-200 px-6 py-16 mt-20">
       <motion.div
         className="max-w-5xl mx-auto text-center"
         initial={{ opacity: 0, y: -30 }}
@@ -52,7 +52,7 @@ const AboutUs = () => {
           />
           <div>
             <h1
-              className={`text-4xl font-bold transition-colors duration-500 ${textColors[colorIndex]}`}
+              className={`text-3xl font-bold transition-colors duration-500 `}
             >
               👨‍💻 Dipu Barman
             </h1>
@@ -66,7 +66,7 @@ const AboutUs = () => {
           <a
             href="/dipu-barman-resume.pdf"
             download
-            className="btn btn-outline btn-info font-semibold"
+            className="btn btn-outline btn-primary font-semibold"
           >
             <FaFileDownload className="mr-2" /> Download Resume
           </a>
@@ -81,17 +81,17 @@ const AboutUs = () => {
         >
           <div className="stat">
             <div className="stat-title">Projects Completed</div>
-            <div className="stat-value text-success">12+</div>
+            <div className="stat-value text-primary">12+</div>
             <div className="stat-desc">React / MERN / Firebase</div>
           </div>
           <div className="stat">
             <div className="stat-title">Years Experience</div>
-            <div className="stat-value text-info">1+</div>
+            <div className="stat-value ">1+</div>
             <div className="stat-desc">Frontend & Backend</div>
           </div>
           <div className="stat">
             <div className="stat-title">Tech Mastery</div>
-            <div className="stat-value text-warning">90%</div>
+            <div className="stat-value text-primary">90%</div>
             <div className="stat-desc">Consistently learning & growing</div>
           </div>
         </motion.div>
@@ -143,14 +143,14 @@ const AboutUs = () => {
             href="https://tourzone-project.web.app"
             target="_blank"
             rel="noreferrer"
-            className="btn btn-outline btn-secondary"
+            className="btn btn-outline btn-primary"
           >
             <FaGlobe className="mr-2" />
             Live Project
           </a>
           <a
             href="mailto:dipu@example.com"
-            className="btn btn-outline btn-accent"
+            className="btn btn-outline btn-primary"
           >
             <FaEnvelope className="mr-2" />
             Email Me

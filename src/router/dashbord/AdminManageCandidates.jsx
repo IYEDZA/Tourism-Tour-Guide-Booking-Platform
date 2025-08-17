@@ -8,6 +8,7 @@ import { FaUserCheck, FaUserTimes, FaUserTie, FaEnvelope, FaPaperclip, FaStar, F
 import useAxios from "../../hooks/useAxios";
 import { useQuery } from "@tanstack/react-query";
 import Authcontext from "../../context/Authcontext";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 // Dummy Data
 const admin = [
@@ -32,8 +33,10 @@ const admin = [
 ];
 
 export default function AdminManageCandidates() {
+
   // const [applications, setApplications] = useState([]);
   const axiosSecure = useAxios();
+  const axiosPrivate =useAxiosSecure()
   
 
   // ..................................................
@@ -46,7 +49,7 @@ const {user}= use(Authcontext)
   const { isPending, data: tourGuide = [], refetch } = useQuery({
     queryKey: ['pending-tourGuides'],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/tourGuides/pending?page=${currentPage}&size=${itemsPerPage}`);
+      const res = await axiosPrivate.get(`/tourGuides/pending?page=${currentPage}&size=${itemsPerPage}`);
       return res.data;
     }
   })
@@ -78,7 +81,7 @@ const {user}= use(Authcontext)
         email
       });
 
-      // refetch();
+       refetch();
 
       Swal.fire("Success", ` ${action}d successfully`, "success");
 
@@ -132,13 +135,13 @@ refetch()
 
   return (
    <div>
-     <div className="min-h-screen bg-base-100 py-10 px-4 md:px-10 text-white">
+     <div className="min-h-screen  py-10 px-4 md:px-10 ">
       {/* Heading */}
       <motion.h1
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6 }}
-        className="text-3xl md:text-4xl font-bold text-center mb-10 text-accent flex justify-center items-center gap-3"
+        className="text-3xl md:text-3xl font-bold text-center mb-10  flex justify-center items-center gap-3"
       >
         <FaUserTie className="text-primary" />
         Manage Tour Guide Applications
@@ -146,8 +149,8 @@ refetch()
 
       {/* Table */}
       <div className="overflow-x-auto rounded-2xl">
-        <table className="table table-zebra border-2  border-info ">
-          <thead className="text-info bg-black text-lg">
+        <table className="table table-zebra border-1   ">
+          <thead className=" bg-base-300 text-lg">
             <tr className="">
               <th>#</th>
               <th><FaUserAlt></FaUserAlt> Candidate Name</th>
@@ -163,9 +166,9 @@ refetch()
               tourGuide.map((app, index) => (
                 <motion.tr
                   key={app._id}
-                  className="border-b border-info hover:bg-gray-300  text-black overflow-x-auto"
-                  whileHover={{ x: 20 }}
-                  transition={{ type: "spring", stiffness: 300 }}
+                  className="border-b  hover:bg-white hover:text-black   overflow-x-auto"
+                  // whileHover={{ x: 20 }}
+                  // transition={{ type: "spring", stiffness: 300 }}
                 >
                   <td className="font-bold">{index + 1}</td>
                   <td className="font-bold">{app.name}</td>
@@ -176,17 +179,17 @@ refetch()
                       href={app.cv}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="link link-info"
+                      className="link link-primary"
                     >
                       View CV
                     </a>
                   </td>
                   <td>
-                    <span className="badge badge-outline badge-success">
+                    <span className="badge badge-outline badge-black">
                       {app.role || "Tourist"}
                     </span>
                   </td>
-                  <td className=" justify-center gap-2 mt-2">
+                  <td className=" justify-center gap-2 ">
                     {/* <button
                       onClick={() => (app)}
                       className="btn btn-success btn-sm mb-2"
@@ -195,7 +198,7 @@ refetch()
                     </button> */}
                     <button
                       onClick={() => handleDecision(app._id, "approve", app.touremail)}
-                      className="btn btn-sm btn-success mb-2 "
+                      className="btn btn-sm btn-primary btn-outline  "
                     >
                       <FaUserCheck className="mr-1" /> Accept
                     </button>
@@ -208,7 +211,7 @@ refetch()
 
                     <button
                       onClick={() => handleDecision(app._id, "reject", app.touremail)}
-                      className="btn btn-sm btn-error"
+                      className="btn btn-sm btn-outline ml-2 hover:btn-primary"
                     >
                       <FaUserTimes className="mr-1" /> Reject
                     </button>

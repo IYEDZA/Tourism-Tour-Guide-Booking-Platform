@@ -54,7 +54,7 @@ const ManageTourGuideStoriesCard = ({mockStories}) => {
                  <div className="mb-6">
      
         
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
+      <div className=" gap-10">
       
       
          
@@ -63,28 +63,28 @@ const ManageTourGuideStoriesCard = ({mockStories}) => {
           <motion.div
             key={story.id}
             whileHover={{ scale: 1.02 }}
-            className="bg-base-100 rounded-xl overflow-hidden shadow-lg border-2 border-info"
+            className=" rounded-xl overflow-hidden shadow-lg"
           >
             <img
-              src={mockStories.photo}
+              src={story.image}
               alt={story.title}
               className="w-full h-48 object-cover hover:scale-105 transition-transform duration-500"
             />
             {/* <img src={stories1.photo} alt="" /> */}
             <div className="p-4 space-y-2">
-              <h3 className="text-xl font-bold text-accent">{story.title}</h3>
-              <p className="text-sm text-info italic"><FaAlignLeft className="inline mr-1" /> {story.description}</p>
+              <h3 className="text-xl font-bold ">{story.title}</h3>
+              <p className="text-sm  italic"><FaAlignLeft className="inline mr-1" /> {story.description}</p>
               {/* <p className="text-xs text-gray-400 italic"><FaListUl className="inline mr-1" /> {story.story.slice(0, 80)}...</p> */}
-              <p className="text-sm text-info"><FaMapMarkerAlt className="inline mr-1" /> {story.place}</p>
-              <p className="text-sm text-info"><FaCalendarAlt className="inline mr-1" /> {story.date}</p>
-              <p className="text-sm text-info"><FaDollarSign className="inline mr-1" /> ${story.cost}</p>
+              <p className="text-sm "><FaMapMarkerAlt className="inline mr-1" /> {story.place}</p>
+              <p className="text-sm "><FaCalendarAlt className="inline mr-1" /> {story.date}</p>
+              <p className="text-sm "><FaDollarSign className="inline mr-1" /> ${story.cost}</p>
               <div className="flex gap-2 flex-wrap mt-2">
                 {/* {story.images.map((img, i) => ( */}
                   <img
                     // key={i}
                     src={story.image}
                     // alt={`story-img-${i}`}
-                    className="w-16 h-16 object-cover border border-info rounded hover:scale-105 transition"
+                    className="w-16 h-16 object-cover border  rounded hover:scale-105 transition"
                   />
                 {/* ))} */}
               </div>
@@ -98,7 +98,7 @@ const ManageTourGuideStoriesCard = ({mockStories}) => {
                 </Link>
                 <button
                   onClick={() => handleDelete(mockStories._id)}
-                  className="btn btn-sm btn-error flex items-center gap-2"
+                  className="btn btn-sm btn-primary flex items-center gap-2"
                 >
                   <FaTrash /> Delete
                 </button>

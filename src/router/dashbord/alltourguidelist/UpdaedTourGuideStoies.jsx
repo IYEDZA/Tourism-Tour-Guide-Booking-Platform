@@ -53,14 +53,14 @@ const UpdaedTourGuideStoies = () => {
 
     return (
         <div>
-            <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 px-6 py-20 text-white">
+            <div className="min-h-screen  px-6 py-20 ">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
         className="max-w-5xl mx-auto bg-base-100 p-10 rounded-xl shadow-2xl border border-accent animate-pulse-slow"
       >
-        <h2 className="text-4xl font-extrabold text-center text-accent mb-10 animate-pulse tracking-wide">
+        <h2 className="text-3xl font-bold text-center  mb-10 animate-pulse tracking-wide">
           <FaBook className="inline-block mr-2 text-accent-content" /> Update Tourist Stories
         </h2>
 
@@ -71,65 +71,65 @@ const UpdaedTourGuideStoies = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="border border-info p-6 rounded-xl relative bg-black/20 backdrop-blur-lg shadow-md hover:shadow-accent/30 hover:scale-[1.01] transition-all duration-300"
+              className="border border-info p-6 rounded-xl relative  backdrop-blur-lg shadow-md hover:shadow-accent/30 hover:scale-[1.01] transition-all duration-300"
             >
-              <h3 className="text-xl font-bold mb-5 text-info">📘 Story {index + 1}</h3>
+              <h3 className="text-xl font-bold mb-5 ">📘 Story {index + 1}</h3>
 
               <input
                 {...register(`stories.${index}.title`, { required: true })}
                 placeholder="✍️ Title"
-                className="input input-bordered w-full mb-4 text-black"
+                className="input input-bordered w-full mb-4 "
               />
               <textarea
                 {...register(`stories.${index}.description`, { required: true })}
                 placeholder="📖 Description"
-                className="textarea textarea-bordered w-full mb-4 text-black"
+                className="textarea textarea-bordered w-full mb-4 "
               />
 
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label className="label text-info font-bold">
+                  <label className="label  font-bold">
                     <FaMapMarkerAlt className="mr-1" /> Place
                   </label>
                   <input
                     {...register(`stories.${index}.place`, { required: true })}
                     placeholder="e.g. Sylhet"
-                    className="input input-bordered w-full text-black"
+                    className="input input-bordered w-full"
                   />
                 </div>
                 <div>
-                  <label className="label text-info font-bold">
+                  <label className="label  font-bold">
                     <FaCalendarAlt className="mr-1" /> Date
                   </label>
                   <input
                     type="date"
                     {...register(`stories.${index}.date`, { required: true })}
-                    className="input input-bordered w-full text-black"
+                    className="input input-bordered w-full "
                   />
                 </div>
               </div>
 
               <div className="grid md:grid-cols-2 gap-4 mt-4">
                 <div>
-                  <label className="label text-info font-bold">
+                  <label className="label  font-bold">
                     <FaDollarSign className="mr-1" /> Cost
                   </label>
                   <input
                     type="number"
                     {...register(`stories.${index}.cost`, { required: true })}
                     placeholder="$"
-                    className="input input-bordered w-full text-black"
+                    className="input input-bordered w-full"
                   />
                 </div>
                 <div>
-                  <label className="label text-info font-bold">
+                  <label className="label  font-bold">
                     <FaImage className="mr-1" /> Image URL
                   </label>
                   <input
                     type="url"
                     {...register(`stories.${index}.image`, { required: true })}
                     placeholder="https://example.com/story.jpg"
-                    className="input input-bordered w-full text-black"
+                    className="input input-bordered w-full "
                   />
                 </div>
               </div>
@@ -138,7 +138,7 @@ const UpdaedTourGuideStoies = () => {
                 <button
                   type="button"
                   onClick={() => remove(index)}
-                  className="btn btn-sm btn-error absolute top-2 right-2"
+                  className="btn btn-sm btn-primary absolute top-2 right-2"
                 >
                   <FaTrashAlt /> Remove
                 </button>
@@ -159,7 +159,7 @@ const UpdaedTourGuideStoies = () => {
                   image: "",
                 })
               }
-              className="btn btn-outline btn-info hover:scale-105 duration-200"
+              className="btn btn-outline btn-primary hover:scale-105 duration-200"
             >
               <FaPlus className="mr-2" /> Add Story
             </button>
@@ -168,7 +168,7 @@ const UpdaedTourGuideStoies = () => {
           <div className="text-center mt-10">
             <button
               type="submit"
-              className="btn btn-accent px-10 py-3 text-lg font-bold text-white shadow-lg hover:scale-105 transition-all"
+              className="btn btn-primary px-10 py-3 text-lg font-bold text-white shadow-lg hover:scale-105 transition-all"
             >
               🚀 Update Stories
             </button>

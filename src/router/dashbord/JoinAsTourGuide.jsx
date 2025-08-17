@@ -44,21 +44,21 @@ export default function JoinAsTourGuide() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-gray-900 via-black to-gray-800 text-white px-6 py-20">
+    <div className="min-h-screen  px-6 py-20">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="max-w-3xl mx-auto bg-base-100 p-10 rounded-xl shadow-2xl border border-info "
+        className="max-w-3xl mx-auto p-10 rounded-xl shadow-2xl "
       >
-        <h2 className="text-4xl font-extrabold text-center text-accent mb-10 animate-pulse">
+        <h2 className="text-3xl font-bold text-center  mb-10 animate-pulse">
           🧳 Apply to Become a Tour Guide
         </h2>
 {/* ,,,,,,,,,,,,,,,,,,,,,,, */}
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label className="block mb-1 font-semibold text-info">
+            <label className="block mb-1 font-semibold ">
               Application Title
             </label>
             <input
@@ -66,11 +66,11 @@ export default function JoinAsTourGuide() {
               name="tourGuideTitle"
               required
               placeholder="Enter a strong application title"
-              className="input w-full border-b-2 border-info bg-transparent text-black"
+              className="input w-full "
             />
           </div>
           <div>
-           <label className="block mb-1 font-semibold text-info">
+           <label className="block mb-1 font-semibold ">
               Application Experince
             </label>
             <input
@@ -78,24 +78,24 @@ export default function JoinAsTourGuide() {
               name="tourGuideExperince"
               required
               placeholder="Enter a strong application Experince"
-              className="input w-full border-b-2 border-info bg-transparent text-black"
+              className="input w-full "
             />
           </div>
 
           <div>
-            <label className="block mb-1 font-semibold text-info">
+            <label className="block mb-1 font-semibold ">
               Why do you want to be a Tour Guide?
             </label>
             <textarea
               required
               name="tourGuidedescription"
               placeholder="Describe your motivation and experience"
-              className="textarea w-full border-b-2 border-info bg-transparent text-black"
+              className="textarea w-full  "
             ></textarea>
           </div>
 
           <div>
-            <label className="block mb-1 font-semibold text-info">
+            <label className="block mb-1 font-semibold ">
               CV / Portfolio Link
             </label>
             <input
@@ -103,13 +103,13 @@ export default function JoinAsTourGuide() {
               name="cV"
               required
               placeholder="https://your-cv-link.com"
-              className="input w-full border-b-2 border-info bg-transparent text-black"
+              className="input w-full "
             />
           </div>
 
           <button
             type="submit"
-            className="btn btn-accent w-full mt-4 flex justify-center items-center gap-2 text-white font-bold hover:scale-105 transition shadow-lg"
+            className="btn btn-primary w-full mt-4 flex justify-center items-center gap-2 text-white font-bold hover:scale-105 transition shadow-lg"
           >
             <FaPaperPlane /> Submit Application
           </button>

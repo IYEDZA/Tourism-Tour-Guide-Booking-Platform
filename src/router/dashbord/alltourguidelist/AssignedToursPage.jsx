@@ -16,10 +16,12 @@ import useUserRole from "../../../hooks/useUserRole";
 import useAxios from "../../../hooks/useAxios";
 import Authcontext from "../../../context/Authcontext";
 import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 
 
 export default function AssignedToursPage() {
+
   // const [tours, setTours] = useState(initialTours);
   const [expandedId, setExpandedId] = useState(null);
 // ....................................
@@ -40,6 +42,7 @@ console.log(count)
   // ........................load...
 const {role} = useUserRole()
   const axiosInstance = useAxios();
+  const axiosPrivate =useAxiosSecure()
   console.log(role)
   const {user}= use(Authcontext)
   console.log(user)
@@ -47,7 +50,10 @@ const {role} = useUserRole()
   const { data: users = [],refetch } = useQuery({
     queryKey: ["my-profile", user?.email],
     queryFn: async () => {
-      const res = await axiosInstance.get(`/booking?email=${user?.email}&page=${currentPage}&size=${itemsPerPage}`);
+    const res = await axiosPrivate.get(
+  `/booking?email=${user?.email}&status=in%20Review
+  &page=${currentPage}&size=${itemsPerPage}`
+);
       return res.data;
     },
     enabled: !!user?.email,
@@ -132,17 +138,17 @@ refetch()
 
   return (
   <div>
-      <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 px-4 md:px-8 py-16 text-white">
+      <div className="min-h-screen  px-4 md:px-8 py-16 ">
       {/* Marquee Title */}
       <div className="mb-10">
-        <Marquee speed={80} gradient={false} className="text-3xl font-bold text-accent">
+        <Marquee speed={80} gradient={false} className="text-3xl font-bold bg-primary p-2">
           🧭 Assigned Tours for Tour Guide — Manage your upcoming adventures!
         </Marquee>
         <motion.h1
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-3xl font-bold text-center mt-6 mb-8"
+          className="text-3xl font-bold text-center mt-10 mb-8"
         >
           🧳 Assigned Tours –
         </motion.h1>
@@ -153,10 +159,10 @@ refetch()
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="overflow-x-auto rounded-xl shadow-2xl border-4 border-info"
+        className="overflow-x-auto rounded-xl shadow-2xl border-1 "
       >
-        <table className="table w-full bg-base-100">
-          <thead className="text-info bg-base-200 border-b border-info">
+        <table className="table w-full ">
+          <thead className=" bg-base-200 border-b ">
             <tr>
               <th><FaGlobe /> Package</th>
               <th><FaUser /> Tourist</th>
@@ -173,9 +179,9 @@ refetch()
                 <motion.tr
                   key={tour.id}
                   whileHover={{ scale: 1.01 }}
-                  className="hover:bg-gray-700 bg-black transition-all duration-300"
+                  className=" transition-all duration-300"
                 >
-                  <td className="text-accent">{tour.title}</td>
+                  <td className="">{tour.title}</td>
                   <td>{tour.touristName}</td>
                   <td>{tour.date}</td>
                   <td>{tour.packageprice}</td>
@@ -183,12 +189,12 @@ refetch()
                     <span
                       className={`badge ${
                         tour.status === "pending"
-                          ? "badge-warning"
+                          ? "badge-outline"
                           : tour.status === "in Review"
-                          ? "badge-info text-[13px] p-4"
+                          ? "badge-primary text-[13px] p-4"
                           : tour.status === "accepted"
-                          ? "badge-success"
-                          : "badge-error"
+                          ? "badge-primary"
+                          : "badge-primary"
                       } capitalize`}
                     >
                       {tour.status}
@@ -198,8 +204,8 @@ refetch()
                     <button
                       onClick={() => handleAccept(tour._id,"Accepted")}
                       disabled={tour.status !== "in Review"}
-                      className={`btn btn-sm ${
-                        tour.status === "in Review" ? "btn-success" : "btn-disabled"
+                      className={`btn btn-primary btn-sm ${
+                        tour.status === "in Review" ? "btn-primary" : "btn-disabled"
                       } text-white`}
                     >
                       <FaCheckCircle className="mr-1" /> Accept
@@ -207,7 +213,7 @@ refetch()
                     <button
                       onClick={() => handleAccept(tour._id,"reject")}
                       disabled={tour.status !== "in Review"}
-                      className="btn btn-sm btn-error text-white"
+                      className="btn btn-sm btn-primary text-white"
                     >
                       <FaTimesCircle className="mr-1" /> Reject
                     </button>
@@ -231,7 +237,7 @@ refetch()
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ duration: 0.4 }}
-                      className="bg-base-200 text-black"
+                      className=""
                     >
                       <td colSpan="7" className="p-4 space-y-2">
                         <p><strong>📍 Location:</strong> </p>

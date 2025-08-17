@@ -75,9 +75,9 @@ const axiosInstance = useAxios();
 
   console.log(packages)
   return (
-      <div className="py-12 px-4 md:px-10 bg-gradient-to-b from-white to-emerald-50">
+      <div className="py-12 px-4 md:px-10  mt-20">
       <motion.h2
-        className="text-4xl font-bold text-center text-emerald-600 mb-10"
+        className="text-3xl font-bold text-center  mb-10"
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -85,11 +85,11 @@ const axiosInstance = useAxios();
         Explore All Tour Packages ✈️
       </motion.h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         {packages.map((pkg, i) => (
           <motion.div
             key={pkg._id}
-            className="card bg-white shadow-xl hover:shadow-2xl border border-emerald-200 rounded-2xl transition-transform transform hover:scale-105"
+            className="card  shadow-xl hover:shadow-2xl border border-emerald-200 rounded-2xl transition-transform transform hover:scale-105"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: i * 0.1 }}
@@ -101,8 +101,8 @@ const axiosInstance = useAxios();
                 className="w-full h-56 object-cover hover:scale-110 transition-transform duration-500"
               />
             </figure>
-            <div className="card-body space-y-2">
-              <h3 className="text-xl font-bold text-emerald-700">{pkg.title}</h3>
+            <div className="card-body space-y-1">
+              <h3 className="text-xl font-bold ">{pkg.title}</h3>
               <div className="flex items-center gap-2 text-sm text-gray-500">
                 <FaMapMarkerAlt className="text-emerald-500" /> {pkg.location}
               </div>
@@ -118,7 +118,7 @@ const axiosInstance = useAxios();
                 </span>
               </div>
               <div className="flex items-center justify-between mt-3">
-                <div className="text-lg font-semibold text-emerald-600">
+                <div className="text-lg font-semibold ">
                   ${pkg.price}
                 </div>
                 <div className="flex items-center gap-1 text-yellow-500">
@@ -130,7 +130,7 @@ const axiosInstance = useAxios();
 
                 <Link to={`/pack/${pkg._id}`}><button
                   // onClick={() => navigate(`/package-details/${pkg._id}`)}
-                  className="btn btn-outline btn-emerald-600 w-full hover:bg-emerald-500 hover:text-white transition-all duration-300"
+                  className="btn btn-outline btn-primary  w-full hover:bg-emerald-500  transition-all duration-300"
                 >
                   View Details
                 </button>

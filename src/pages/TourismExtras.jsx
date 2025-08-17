@@ -124,7 +124,9 @@ const highlights = [
   { icon: <FaGlobe />, title: "100+ Countries", desc: "Global reach for every type of traveler" },
   { icon: <FaHiking />, title: "Thrill Packed", desc: "Adventure tours, hikes, dives, safaris" },
   { icon: <FaStar />, title: "Top Ratings", desc: "4.9+ average traveler rating" },
+  { icon: <FaUser />, title: "24/7 Support", desc: "We’re always here to help you plan your trip" },
 ];
+
 
 const seasons = [
   {
@@ -159,58 +161,68 @@ const seasons = [
 
 export default function TourismShowcaseFinal() {
   return (
-    <div className="text-white animate-pulse-slow bg-[conic-gradient(at_top_left,_var(--tw-gradient-stops))] from-gray-900 via-black to-gray-800 py-20 space-y-28 px-4 lg:px-24 ">
+    <div className=" animate-pulse-slow py-20 space-y-28 px-4 lg:px-24 ">
 
-      {/* Traveler Testimonials */}
-      <div className="">
-      <h2 className="text-4xl font-extrabold text-center text-primary animate-pulse mb-16">
-        💬 What Travelers Are Saying
-      </h2>
+     {/* Traveler Testimonials */}
+<section className="py-20">
+  <h2 className="text-3xl font-bold text-center  mb-16">
+    💬 What Travelers Are Saying
+  </h2>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 px-4">
-        {testimonials.map((t, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: i * 0.1 }}
-            className="bg-base-100 rounded-2xl border-4 border-info p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-accent"
-          >
-            <div className="flex items-center justify-center flex-col">
-              <img
-                src={t.img}
-                alt={t.name}
-                className="w-20 h-20 rounded-full border-4 border-secondary shadow-lg mb-3"
-              />
-              <h3 className="text-xl font-bold text-accent">{t.name}</h3>
-              <p className="text-sm text-gray-400 flex items-center gap-1">
-                <FaMapMarkedAlt /> {t.location}
-              </p>
-              <p className="text-sm text-info flex items-center gap-1 mt-1">
-                <FaUser /> {t.occupation} — <span className="text-white">{t.trip}</span>
-              </p>
+  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+    {testimonials.map((t, i) => (
+      <motion.div
+        key={i}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: i * 0.1 }}
+        className="relative bg-base-100 rounded-3xl  p-6 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-500"
+      >
+        {/* Traveler Info */}
+        <div className="flex flex-col items-center text-center">
+          <div className="flex gap-4">
+            <div className="w-24 h-24 rounded-full overflow-hidden  shadow-lg mb-4">
+            <img src={t.img} alt={t.name} className="w-full h-full object-cover" />
+           
+          </div>
+           <div>
+               <h3 className="text-xl font-bold  mb-1">{t.name}</h3>
+          <p className="text-gray-400 text-sm flex items-center gap-1">
+            <FaMapMarkedAlt /> {t.location}
+          </p>
             </div>
+            
+          </div>
+          
+         
+          <p className="text-primary text-sm flex items-center gap-1 mt-1">
+            <FaUser /> {t.occupation} — <span className="text-white">{t.trip}</span>
+          </p>
+        </div>
 
-            <div className="mt-4 p-4 bg-gray-900 rounded-xl border border-dashed border-gray-600 relative">
-              <FaQuoteLeft className="absolute -top-5 left-3 text-2xl text-secondary" />
-              <p className="text-white italic">{t.quote}</p>
-            </div>
+        {/* Quote Box */}
+        <div className="mt-6 p-5 bg-gray-900 bg-opacity-80 backdrop-blur-sm rounded-2xl border border-dashed border-gray-600 relative">
+          <FaQuoteLeft className="absolute -top-5 left-5 text-3xl text-gradient-to-r from-accent via-secondary to-info" />
+          <p className="text-white italic text-sm leading-relaxed">{t.quote}</p>
+        </div>
 
-            <div className="flex justify-center mt-4 text-yellow-400 text-lg">
-              {[...Array(t.rating)].map((_, i) => (
-                <motion.div key={i} whileHover={{ scale: 1.2 }}>
-                  <FaStar />
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </div>
+        {/* Rating Stars */}
+        <div className="flex justify-center mt-5 text-yellow-400 text-lg gap-1">
+          {[...Array(t.rating)].map((_, idx) => (
+            <motion.div key={idx} whileHover={{ scale: 1.3 }} transition={{ type: "spring", stiffness: 300 }}>
+              <FaStar />
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+    ))}
+  </div>
+</section>
+
 
       {/* Top Experiences */}
        <section>
-        <h2 className="text-center text-4xl font-extrabold text-accent animate-pulse mb-12">
+        <h2 className="text-center text-3xl font-bold  animate-pulse mb-12">
           🌍 Global Top Experiences
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-flow-dense auto-rows-fr gap-6">
@@ -237,10 +249,10 @@ export default function TourismShowcaseFinal() {
       </section>
       {/* Highlight Features */}
       <section>
-        <h2 className="text-center text-4xl font-extrabold text-primary animate-pulse mb-12">
+        <h2 className="text-center text-3xl font-bold  animate-pulse mb-12">
           🚀 Why Travel With Us?
         </h2>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-4 gap-5">
           {highlights.map((h, i) => (
             <motion.div
               key={i}
@@ -257,7 +269,7 @@ export default function TourismShowcaseFinal() {
 
       {/* Seasonal Travel Tips */}
       <section>
-        <h2 className="text-center text-4xl font-extrabold text-warning animate-pulse mb-12">
+        <h2 className="text-center text-3xl font-bold  animate-pulse mb-12">
           🗕️ Best Seasons to Travel
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -265,10 +277,10 @@ export default function TourismShowcaseFinal() {
             <motion.div
               key={i}
               whileHover={{ scale: 1.05 }}
-              className="bg-base-100 border-2 border-info rounded-xl p-5 shadow-lg"
+              className="bg-base-200  rounded-xl p-5 shadow-lg"
             >
               <div className={`text-3xl ${s.color} mb-3`}>{s.icon}</div>
-              <h4 className="font-bold text-lg text-red-400">{s.name}</h4>
+              <h4 className="font-bold text-lg text-primary">{s.name}</h4>
               <p className="text-gray-400 text-sm mt-1">Best for: {s.places}</p>
               <p className="text-gray-300 text-xs mt-2 italic">{s.tips}</p>
             </motion.div>

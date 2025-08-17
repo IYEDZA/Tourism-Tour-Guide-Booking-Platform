@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { FaGlobeAmericas, FaUsers, FaStar, FaHiking, FaUmbrellaBeach, FaMountain } from "react-icons/fa";
+import { FaHiking, FaUmbrellaBeach, FaMountain } from "react-icons/fa";
+import { Link } from "react-router";
 
 const textColors = [
   "text-primary",
@@ -40,77 +41,82 @@ const OverviewSection = () => {
   }, []);
 
   return (
-    <div className="bg-base-200 px-6 lg:px-20 py-16">
-      <div className="flex flex-col-reverse lg:flex-row items-center gap-12">
+    <div className="bg-base-100 px-6 lg:px-24 py-20">
+      <div className="flex flex-col-reverse lg:flex-row items-center gap-16">
         {/* Left: Text + Stats + Icons */}
         <motion.div
-          className="max-w-xl text-center lg:text-left"
+          className="max-w-lg text-center lg:text-left"
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
           <h2
-            className={`text-4xl font-bold mb-4 transition-colors duration-500 ${textColors[colorIndex]}`}
+            className={`text-3xl md:text-3xl font-bold mb-6 transition-colors duration-500 `}
           >
-            Why Choose TourZone?
+            Why Choose WanderSphere?
           </h2>
-          <p className="text-gray-700 text-lg mb-6">
-            TourZone brings the world to your fingertips — explore with confidence and create unforgettable memories with our curated experiences.
+          <p className="text-gray-400 text-lg md:text-xl mb-8 leading-relaxed">
+            TourZone brings the world to your fingertips — explore with confidence and create
+            unforgettable memories with our curated experiences.
           </p>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 text-center mb-6">
-            <div>
-              <p className="text-3xl font-bold text-primary">{count.destinations}+</p>
-              <p className="text-sm text-gray-500">Destinations</p>
+          <div className="grid grid-cols-3 text-center gap-6 mb-8">
+            <div className="bg-base-100 p-4 rounded-lg shadow-lg">
+              <p className="text-3xl md:text-4xl font-bold text-accent">{count.destinations}+</p>
+              <p className="text-sm md:text-base text-gray-500 mt-1">Destinations</p>
             </div>
-            <div>
-              <p className="text-3xl font-bold text-secondary">{count.travelers}+</p>
-              <p className="text-sm text-gray-500">Happy Travelers</p>
+            <div className="bg-base-100 p-4 rounded-lg shadow-lg">
+              <p className="text-3xl md:text-4xl font-bold ">{count.travelers}+</p>
+              <p className="text-sm md:text-base text-gray-500 mt-1">Happy Travelers</p>
             </div>
-            <div>
-              <p className="text-3xl font-bold text-accent">{count.reviews}+</p>
-              <p className="text-sm text-gray-500">Reviews</p>
+            <div className="bg-base-100 p-4 rounded-lg shadow-lg">
+              <p className="text-3xl md:text-4xl font-bold text-accent">{count.reviews}+</p>
+              <p className="text-sm md:text-base text-gray-500 mt-1">Reviews</p>
             </div>
           </div>
 
           {/* Animated Travel Category Icons */}
-          <div className="flex justify-center lg:justify-start gap-6 text-3xl text-info mb-6">
-            <motion.div whileHover={{ scale: 1.2 }}><FaHiking title="Adventure" /></motion.div>
-            <motion.div whileHover={{ scale: 1.2 }}><FaUmbrellaBeach title="Beach" /></motion.div>
-            <motion.div whileHover={{ scale: 1.2 }}><FaMountain title="Mountain" /></motion.div>
+          <div className="flex justify-center lg:justify-start gap-8 text-3xl md:text-4xl text-info mb-8">
+            <motion.div whileHover={{ scale: 1.2 }} className="p-3 bg-base-100 rounded-lg shadow-lg">
+              <FaHiking title="Adventure" />
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.2 }} className="p-3 bg-base-100 rounded-lg shadow-lg">
+              <FaUmbrellaBeach title="Beach" />
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.2 }} className="p-3 bg-base-100 rounded-lg shadow-lg">
+              <FaMountain title="Mountain" />
+            </motion.div>
           </div>
 
           {/* Button */}
-          <motion.button
-            className={`btn btn-outline btn-wide font-bold border-2 ${textColors[colorIndex]}`}
-            whileHover={{ scale: 1.1 }}
+          <Link to='/trip'> <motion.button
+            className={`btn btn-outline btn-wide rounded-full font-bold border-2 ${textColors[colorIndex]}`}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             Learn More
-          </motion.button>
+          </motion.button></Link>
+         
         </motion.div>
 
-        {/* Right: Local Video */}
+        {/* Right: Video */}
         <motion.div
-  className="w-full max-w-xl rounded-lg shadow-2xl overflow-hidden"
-  initial={{ opacity: 0, x: 80 }}
-  animate={{ opacity: 1, x: 0 }}
-  transition={{ duration: 1.2 }}
->
-  
-  {/* <video
-    src="https://youtu.be/Z755vZBf9oM?si=tYumkcaE6yiKI3F0"
-    className="w-full h-full rounded-xl"
-    autoPlay
-    loop
-    muted
-    playsInline
-  /> */}
-
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/Z755vZBf9oM?si=OhoXK3he_feG2yrH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</motion.div>
-
+          className="w-full  rounded-2xl shadow-2xl overflow-hidden border-2 border-base-300"
+          initial={{ opacity: 0, x: 80 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.2 }}
+        >
+          <iframe
+            className="w-full h-64 sm:h-80 md:h-96 rounded-2xl"
+            src="https://www.youtube.com/embed/Z755vZBf9oM?si=OhoXK3he_feG2yrH"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
+        </motion.div>
       </div>
     </div>
   );

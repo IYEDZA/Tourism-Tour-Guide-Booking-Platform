@@ -71,90 +71,90 @@ console.log(itineraryArray);
   };
 
   return (
-    <div className="min-h-screen relative bg-stars text-white px-6 py-12 overflow-hidden">
-      <div className="absolute inset-0 animate-pulse bg-opacity-5 bg-gradient-to-br from-indigo-400 via-purple-600 to-pink-400 z-0" />
+    <div className="min-h-screen relative   px-6 py-12 overflow-hidden">
+      <div className="absolute inset-0 animate-pulse bg-opacity-5  z-0" />
 
       <motion.h1
         initial={{ y: -60, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7 }}
-        className="text-4xl font-extrabold text-center text-primary drop-shadow-2xl mb-12 z-10 relative"
+        className="text-3xl font-bold text-center  drop-shadow-2xl mb-12 z-10 relative"
       >
-        <FaGlobeAsia className="inline mr-3 text-secondary animate-spin-slow" />
+        <FaGlobeAsia className="inline mr-3 animate-spin-slow" />
         Add New Tour Package
       </motion.h1>
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="relative z-10 max-w-5xl mx-auto bg-base-200 bg-opacity-90 p-10 rounded-3xl shadow-2xl space-y-6 border border-info animate-borderGlow"
+        className="relative z-10 max-w-5xl mx-auto   p-10 rounded-3xl shadow-2xl space-y-6  animate-borderGlow"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <label className="flex flex-col">
-            <span className="flex items-center gap-2 text-black">
+            <span className="flex items-center gap-2 ">
               <FaRegEdit /> Title
             </span>
             <input
               type="text"
               {...register("title", { required: "Title is required" })}
-              className="input input-bordered w-full text-black"
+              className="input input-bordered w-full "
               placeholder="Package Title"
             />
-            {errors.title && <p className="text-error text-sm mt-1">{errors.title.message}</p>}
+            {errors.title && <p className=" text-sm mt-1">{errors.title.message}</p>}
           </label>
 
           <label className="flex flex-col">
-            <span className="flex items-center gap-2  text-black">
+            <span className="flex items-center gap-2  ">
               <FaMapMarkedAlt /> Location
             </span>
             <input
               type="text"
               {...register("location", { required: "Location is required" })}
-              className="input input-bordered w-full text-black"
+              className="input input-bordered w-full"
               placeholder="Location"
             />
-            {errors.location && <p className="text-error text-sm mt-1">{errors.location.message}</p>}
+            {errors.location && <p className=" text-sm mt-1">{errors.location.message}</p>}
           </label>
 
           <label className="flex flex-col">
-            <span className="flex items-center gap-2  text-black">
+            <span className="flex items-center gap-2  ">
               <FaTags /> Price
             </span>
             <input
               type="text"
               {...register("price", { required: "Price is required" })}
-              className="input input-bordered w-full text-black"
+              className="input input-bordered w-full"
               placeholder="Price (e.g. $799)"
             />
             {errors.price && <p className="text-error text-sm mt-1">{errors.price.message}</p>}
           </label>
 
           <label className="flex flex-col">
-            <span className="flex items-center gap-2  text-black">
+            <span className="flex items-center gap-2 ">
               <FaCalendarAlt /> Duration
             </span>
             <input
               type="text"
               {...register("duration", { required: "Duration is required" })}
-              className="input input-bordered w-full text-black"
+              className="input input-bordered w-full"
               placeholder="Duration (e.g. 4 days / 3 nights)"
             />
-            {errors.duration && <p className="text-error text-sm mt-1">{errors.duration.message}</p>}
+            {errors.duration && <p className=" text-sm mt-1">{errors.duration.message}</p>}
           </label>
 
           <label className="flex flex-col">
-            <span className="flex items-center gap-2  text-black">
+            <span className="flex items-center gap-2">
               <FaInstagramSquare /> Travel Type
             </span>
             <input
               type="text"
               {...register("travelType")}
-              className="input input-bordered w-full text-black"
+              className="input input-bordered w-full"
               placeholder="Travel Type"
             />
           </label>
 
           <label className="flex flex-col">
-            <span className="flex items-center gap-2  text-black">
+            <span className="flex items-center gap-2">
               <FaUsers /> Max People
             </span>
             <input
@@ -163,14 +163,14 @@ console.log(itineraryArray);
                 valueAsNumber: true,
                 min: { value: 1, message: "Must be at least 1 person" },
               })}
-              className="input input-bordered w-full text-black"
+              className="input input-bordered w-full"
               placeholder="Max People"
             />
-            {errors.maxPeople && <p className="text-error text-sm mt-1">{errors.maxPeople.message}</p>}
+            {errors.maxPeople && <p className=" text-sm mt-1">{errors.maxPeople.message}</p>}
           </label>
 
           <label className="flex flex-col">
-            <span className="flex items-center gap-2  text-black">
+            <span className="flex items-center gap-2  ">
               <FaStar /> Rating
             </span>
             <input
@@ -182,68 +182,68 @@ console.log(itineraryArray);
                 min: { value: 0, message: "Min rating is 0" },
                 max: { value: 5, message: "Max rating is 5" },
               })}
-              className="input input-bordered w-full text-black"
+              className="input input-bordered w-full"
               placeholder="Rating (1-5)"
             />
             {errors.rating && <p className="text-error text-sm mt-1">{errors.rating.message}</p>}
           </label>
 
           <label className="flex flex-col">
-            <span className="flex items-center gap-2  text-black">
+            <span className="flex items-center gap-2 ">
               <FaUserTie /> Speciality
             </span>
             <input
               type="text"
               {...register("speciality")}
-              className="input input-bordered w-full text-black"
+              className="input input-bordered w-full "
               placeholder="speciality........"
             />
           </label>
         </div>
         <label className="flex flex-col">
-          <span className="flex items-center gap-2 text-black">
+          <span className="flex items-center gap-2">
             <FaImage />Cover Images
           </span>
           <input
             type="text"
             {...register("cover")}
-            className="input input-bordered w-full text-black"
+            className="input input-bordered w-full"
             placeholder="Cover Image URLs ........."
           />
         </label>
 
         <label className="flex flex-col">
-          <span className="flex items-center gap-2 text-black">
+          <span className="flex items-center gap-2 ">
             <FaImage /> Images
           </span>
           <input
             type="text"
             {...register("images")}
-            className="input input-bordered w-full text-black"
+            className="input input-bordered w-full"
             placeholder="Image URLs (comma separated)"
           />
         </label>
 
         <label className="flex flex-col">
-          <span className="flex items-center gap-2 text-black">
+          <span className="flex items-center gap-2 ">
             <FaFileAlt /> Description
           </span>
           <textarea
             {...register("description")}
             rows={4}
-            className="textarea textarea-bordered w-full text-black"
+            className="textarea textarea-bordered w-full "
             placeholder="Tour Description"
           />
         </label>
 
         <label className="flex flex-col">
-          <span className="flex items-center gap-2 text-black">
+          <span className="flex items-center gap-2 ">
             <FaCalendarAlt /> Itinerary
           </span>
           <textarea
             {...register("itinerary")}
             rows={5}
-            className="textarea textarea-bordered w-full text-black"
+            className="textarea textarea-bordered w-full text-white"
             placeholder="Itinerary (e.g. Day 1:..., Day 2:...)"
           />
         </label>

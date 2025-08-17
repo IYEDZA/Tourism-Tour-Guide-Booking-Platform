@@ -87,12 +87,12 @@ const Register = () => {
 
       <ToastContainer />
 
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-50 via-white to-cyan-100 p-4">
+      <div className="min-h-screen flex items-center justify-center  p-4">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative w-full max-w-2xl bg-white bg-opacity-90 backdrop-blur-xl shadow-2xl rounded-3xl px-10 py-10 overflow-hidden border-4 border-transparent"
+          className="relative w-full max-w-2xl bg-opacity-90 backdrop-blur-xl shadow-2xl rounded-3xl px-10 py-10 overflow-hidden border-4 border-transparent"
         >
           {/* Side glow borders */}
           <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-blue-500 via-cyan-400 to-green-400 animate-glow z-10" />
@@ -106,21 +106,21 @@ const Register = () => {
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 z-20 relative">
             {/* Name */}
             <div className="form-control">
-              <label className="label text-md font-semibold text-gray-700 flex items-center gap-2">
+              <label className="label text-md font-semibold  flex items-center gap-2">
                 <FaUser /> Full Name
               </label>
               <input
                 type="text"
                 {...register("name", { required: "Name is required" })}
                 placeholder="e.g., Steven Jobs"
-                className="input input-bordered"
+                className="input "
               />
               {errors.name && <p className="text-red-500">{errors.name.message}</p>}
             </div>
 
             {/* Photo URL */}
             <div className="form-control">
-              <label className="label text-md font-semibold text-gray-700 flex items-center gap-2">
+              <label className="label text-md font-semibold  flex items-center gap-2">
                 <FaImage /> Photo URL
               </label>
               <input
@@ -133,7 +133,7 @@ const Register = () => {
 
             {/* Email */}
             <div className="form-control">
-              <label className="label text-md font-semibold text-gray-700 flex items-center gap-2">
+              <label className="label text-md font-semibold  flex items-center gap-2">
                 <FaEnvelope /> Email Address
               </label>
               <input
@@ -147,7 +147,7 @@ const Register = () => {
 
             {/* Password */}
             <div className="form-control">
-              <label className="label text-md font-semibold text-gray-700 flex items-center gap-2">
+              <label className="label text-md font-semibold flex items-center gap-2">
                 <FaLock /> Password
               </label>
               <div className="relative">
@@ -177,8 +177,8 @@ const Register = () => {
 
             {/* Agree Checkbox */}
             <div className="form-control">
-              <label className="cursor-pointer flex items-center gap-2 text-sm text-gray-700">
-                <input type="checkbox" {...register("agree")} className="checkbox checkbox-sm" />
+              <label className="cursor-pointer flex items-center gap-2 text-sm ">
+                <input type="checkbox" {...register("agree")} className="checkbox checkbox-primary checkbox-sm " />
                 I agree to the Terms & Conditions
               </label>
             </div>
@@ -187,7 +187,7 @@ const Register = () => {
               Register Now
             </button>
 
-            <p className="text-sm text-center mt-4">
+            <p className="text-sm text-center mt-4 ">
               Already registered?{" "}
               <Link className="text-blue-600 font-semibold" to="/login">
                 Login here
@@ -195,6 +195,12 @@ const Register = () => {
             </p>
           </form>
           <SocialLogin></SocialLogin>
+
+          <div className='flex justify-end items-center'>
+            <Link to='/' className=' '> <button className='btn btn-primary mt-10 '>back home</button></Link>
+          </div>
+
+          
         </motion.div>
 
       </div>

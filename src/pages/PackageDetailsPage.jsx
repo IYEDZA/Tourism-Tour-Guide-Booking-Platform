@@ -78,7 +78,7 @@ const PackageDetailsPage = () => {
 
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-10 space-y-12">
+    <div className="max-w-6xl mx-auto px-4 py-10 space-y-12 mt-20">
 
 
 
@@ -122,7 +122,7 @@ const PackageDetailsPage = () => {
 
 
       
-    <div className="relative overflow-hidden py-6 bg-gradient-to-r from-primary to-secondary shadow-xl rounded-xl mb-10">
+    <div className="relative overflow-hidden py-6 bg-primary  shadow-xl rounded-xl mb-10">
       {/* Marquee animation using motion + Tailwind */}
       <motion.div
         initial={{ x: "100%" }}
@@ -132,15 +132,15 @@ const PackageDetailsPage = () => {
           duration: 12,
           ease: "linear",
         }}
-        className="flex gap-12 whitespace-nowrap text-white font-extrabold text-2xl md:text-4xl tracking-widest px-6"
+        className="flex gap-12 whitespace-nowrap text-white font-bold text-2xl md:text-xl tracking-widest px-6"
       >
         {Array(3)
           .fill(
             <span className="flex items-center gap-4 drop-shadow-lg">
               <FaStar className="text-yellow-400 animate-pulse" />
-              <FaHeart className="text-pink-500 animate-bounce" />
+              <FaHeart className=" animate-bounce" />
               Your Favourite Package 
-              <FaPlaneDeparture className="text-info animate-spin-slow" />
+              <FaPlaneDeparture className=" animate-spin-slow" />
             </span>
           )
           .map((content, idx) => (

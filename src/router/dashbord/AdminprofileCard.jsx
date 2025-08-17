@@ -44,7 +44,7 @@ const stats = {
 
 
   
-const AdminprofileCard = ({initialAdmin}) => {
+const AdminprofileCard = ({initialAdmin,refetch}) => {
 
 const [admin, setAdmin] = useState(initialAdmin);
   const [isOpen, setIsOpen] = useState(false);
@@ -114,19 +114,20 @@ const [admin, setAdmin] = useState(initialAdmin);
      confirmButtonColor: "#0ea5e9",
   });
     setIsOpen(false);
+    refetch()
   };
 
 
     return (
         <div>
-            <div className="min-h-screen relative bg-gradient-to-b from-black to-gray-900 text-white px-6 py-12 overflow-hidden">
+            <div className="min-h-screen relative px-6 py-12 overflow-hidden">
       
       {/* Header */}
       <motion.h1
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
-        className="text-4xl text-center font-bold text-primary mb-10 drop-shadow-lg"
+        className="text-3xl text-center font-bold  mb-10 drop-shadow-lg"
       >
         👋 Welcome Back, {admin?.name || "Admin"}
       </motion.h1>
@@ -157,11 +158,11 @@ const [admin, setAdmin] = useState(initialAdmin);
             // key={}
             whileHover={{ scale: 1.08, rotate: [0, 2, -2, 0] }}
             transition={{ type: "spring", stiffness: 300 }}
-            className="bg-base-100 p-5 rounded-xl shadow-2xl text-center border border-info hover:shadow-accent snake-border "
+            className="bg-base-100 p-5 rounded-xl shadow-2xl text-center  hover:shadow-accent  "
           >
-            <div className="text-3xl text-accent mb-2 animate-bounce"><FaUsers /></div>
-            <h2 className="text-xl text-black font-bold">{count}</h2>
-            <p className="text-info text-sm">{role}</p>
+            <div className="text-3xl  mb-2 animate-bounce"><FaUsers /></div>
+            <h2 className="text-xl font-bold">{count}</h2>
+            <p className=" text-sm">{role}</p>
           </div>)
           
 }
@@ -170,22 +171,22 @@ const [admin, setAdmin] = useState(initialAdmin);
             // key={}
             whileHover ={{ scale: 1.08, rotate: [0, 2, -2, 0] }}
             transition={{ type: "spring", stiffness: 300 }}
-            className="bg-base-100 p-5 rounded-xl shadow-2xl text-center border border-info hover:shadow-accent snake-border "
+            className="bg-base-100 p-5 rounded-xl shadow-2xl text-center  hover:shadow-accent  "
           >
-            <div className="text-3xl text-accent mb-2 animate-bounce"><FaMoneyCheckAlt /></div>
-            <h2 className="text-xl text-black font-bold">{paycount.total}</h2>
-            <p className="text-info text-sm">Total payment</p>
+            <div className="text-3xl  mb-2 animate-bounce"><FaMoneyCheckAlt /></div>
+            <h2 className="text-xl  font-bold">{paycount.total}</h2>
+            <p className=" text-sm">Total payment</p>
           </div>
 
           <div
             // key={}
             whileHover ={{ scale: 1.08, rotate: [0, 2, -2, 0] }}
             transition={{ type: "spring", stiffness: 300 }}
-            className="bg-base-100 p-5 rounded-xl shadow-2xl text-center border border-info hover:shadow-accent snake-border "
+            className="bg-base-100 p-5 rounded-xl shadow-2xl text-center  hover:shadow-accent  "
           >
-            <div className="text-3xl text-accent mb-2 animate-bounce"><FaBoxOpen /></div>
-            <h2 className="text-xl text-black font-bold">{packcount.count}</h2>
-            <p className="text-info text-sm">Total package</p>
+            <div className="text-3xl mb-2 animate-bounce"><FaBoxOpen /></div>
+            <h2 className="text-xl  font-bold">{packcount.count}</h2>
+            <p className=" text-sm">Total package</p>
           </div>
       </div>
 
@@ -198,7 +199,7 @@ const [admin, setAdmin] = useState(initialAdmin);
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
           whileHover={{ scale: 1.03 }}
-          className="border-4 border-accent rounded-xl overflow-hidden shadow-xl hover:shadow-accent  "
+          className="border-1 border-accent rounded-xl overflow-hidden shadow-xl hover:shadow-accent  "
         >
           <img
             src={admin.photo}
@@ -206,12 +207,12 @@ const [admin, setAdmin] = useState(initialAdmin);
             className="w-full h-72 object-cover "
             alt="Admin"
           />
-          <div className="bg-black bg-opacity-70 p-3 text-center">
-            <p className="font-bold text-lg animate-pulse-slow">
+          <div className=" bg-opacity-70 p-3 text-center">
+            <p className="font-bold  animate-pulse-slow">
               <FaUserAlt className="inline mr-1" />
               {admin?.name}
             </p>
-            <p className="text-accent">
+            <p className="">
               <FaUserShield className="inline mr-1" />
               {admin?.role}
             </p>
@@ -222,30 +223,30 @@ const [admin, setAdmin] = useState(initialAdmin);
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="mt-6 lg:col-span-2 space-y-3 text-info font-medium"
+          className="mt-6 lg:col-span-2 space-y-3 font-medium"
         >
-          <p className="border-b-2 border-accent border-dotted pb-3">
+          <p className="border-b-2  border-dotted pb-3">
             <FaUserAlt className="inline mr-1" />
-            <strong>Name:</strong> <span className="text-white">{admin?.name}</span>
+            <strong>Name:</strong> <span className="">{admin?.name}</span>
           </p>
           <p>
             <FaEnvelope className="inline mr-1" />
-            <strong>Email:</strong> <span className="text-white">{admin?.email}</span>
+            <strong>Email:</strong> <span className="">{admin?.email}</span>
           </p>
           <p>
             <FaUserTie className="inline mr-1" />
-            <strong>Role:</strong> <span className="text-white">{admin?.role}</span>
+            <strong>Role:</strong> <span className="">{admin?.role}</span>
           </p>
           <p>
             <FaPhone className="inline mr-1" />
-            <strong>Phone:</strong> <span className="text-white">{admin?.phone}</span>
+            <strong>Phone:</strong> <span className="">{admin?.phone}</span>
           </p>
           <p>
             <FaMapMarkerAlt className="inline mr-1" />
-            <strong>Location:</strong> <span className="text-white">{admin?.location}</span>
+            <strong>Location:</strong> <span className="">{admin?.location}</span>
           </p>
-          <p className="border-l-4 border-accent pl-4 text-white italic">
-            <FaInfoCircle className="inline mr-2 text-accent" />
+          <p className="border-l-4 border-accent pl-4  italic">
+            <FaInfoCircle className="inline mr-2 " />
             <strong>About:</strong> {admin?.about}
           </p>
         </motion.div>
@@ -257,7 +258,7 @@ const [admin, setAdmin] = useState(initialAdmin);
           whileTap={{ scale: 0.95 }}
           whileHover={{ scale: 1.05 }}
           onClick={() => setIsOpen(true)}
-          className="btn btn-secondary font-bold text-white px-6 border border-info hover:shadow-lg"
+          className="btn btn-primary font-bold  px-6 border border-info hover:shadow-lg"
         >
           <FaEdit className="mr-2" /> Edit Profile
         </motion.button>
@@ -275,7 +276,7 @@ const [admin, setAdmin] = useState(initialAdmin);
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-black bg-opacity-70" />
+            <div className="fixed inset-0 bg-base-200 bg-opacity-70" />
           </Transition.Child>
 
           <div className="fixed inset-0 flex items-center justify-center p-4">
@@ -288,23 +289,23 @@ const [admin, setAdmin] = useState(initialAdmin);
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full max-w-md rounded-xl bg-base-100 p-6 text-white border-4 border-info shadow-2xl">
-                <Dialog.Title className="text-xl font-bold text-accent mb-4">Edit Admin Profile</Dialog.Title>
+              <Dialog.Panel className="w-full max-w-md rounded-xl  p-6  border-1 border-info shadow-2xl">
+                <Dialog.Title className="text-xl font-bold  mb-4">Edit Admin Profile</Dialog.Title>
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <input name="name" value={formData.name} onChange={handleChange} placeholder='type your name ...'  className="input input-bordered w-full text-black" required />
-                  <input value={formData.email} disabled className="input input-bordered w-full bg-gray-200 text-gray-500" />
+                  <input name="name" value={formData.name} onChange={handleChange} placeholder='type your name ...'  className="input input-bordered w-full " required />
+                  <input value={formData.email} disabled className="input input-bordered w-full " />
 
-                  <input value={formData.role} disabled className="input input-bordered w-full bg-gray-200 text-gray-500" />
+                  <input value={formData.role} disabled className="input input-bordered w-full " />
 
-                  <input name="phone" value={formData.phone} onChange={handleChange} placeholder='type your phone number ...' className="input input-bordered w-full text-black" />
+                  <input name="phone" value={formData.phone} onChange={handleChange} placeholder='type your phone number ...' className="input input-bordered w-full " />
 
-                  <input name="photo" value={formData.photo} onChange={handleChange} placeholder='type your photo url ...' className="input input-bordered w-full text-black" />
+                  <input name="photo" value={formData.photo} onChange={handleChange} placeholder='type your photo url ...' className="input input-bordered w-full " />
 
-                  <input name="location" value={formData.location} onChange={handleChange} placeholder='type your location ...' className="input input-bordered w-full text-black" />
+                  <input name="location" value={formData.location} onChange={handleChange} placeholder='type your location ...' className="input input-bordered w-full " />
 
-                  <textarea name="about" value={formData.about} onChange={handleChange} placeholder='type about or more  ...' className="textarea textarea-bordered w-full text-black" rows={3} />
+                  <textarea name="about" value={formData.about} onChange={handleChange} placeholder='type about or more  ...' className="textarea textarea-bordered w-full " rows={3} />
                   <div className="text-right">
-                    <button type="submit" className="btn btn-primary text-white px-6">Save</button>
+                    <button type="submit" className="btn btn-primary  px-6">Save</button>
                   </div>
                 </form>
               </Dialog.Panel>

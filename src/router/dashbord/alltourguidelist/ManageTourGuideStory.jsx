@@ -73,18 +73,18 @@ const ManageTourGuideStory = () => {
     return (
    
     <div>
-       <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white px-6 py-20 ">
+       <div className="min-h-screen  px-6 py-20 ">
 
        <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-4xl font-extrabold text-center text-accent mb-12 animate-pulse"
+        className="text-3xl font-bold text-center  mb-12 animate-pulse"
       >
         📝 Manage Your Stories
       </motion.h2>
 
-<div className='grid'>
+<div className='grid md:grid-cols-2 lg:grid-cols-3 gap-3'>
   
       {users?.map(mockStories=><ManageTourGuideStoriesCard mockStories={mockStories}></ManageTourGuideStoriesCard> )}
        

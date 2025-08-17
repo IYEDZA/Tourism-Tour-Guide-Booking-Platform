@@ -71,12 +71,12 @@ const Signin = () => {
       </Helmet>
       <ToastContainer position="top-right" autoClose={3000} />
 
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-white to-pink-100 p-6">
+      <div className="min-h-screen flex items-center justify-center  p-6">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="bg-white bg-opacity-90 backdrop-blur-md shadow-2xl rounded-3xl p-10 w-full max-w-4xl flex flex-col md:flex-row gap-10 border-l-4 border-r-4 border-gradient-to-b from-blue-400 to-pink-400 animate-glow"
+          className=" bg-opacity-90 backdrop-blur-md shadow-2xl rounded-3xl p-10 w-full max-w-4xl flex flex-col md:flex-row gap-10 border-l-4 border-r-4 border-gradient-to-b from-blue-400 to-pink-400 animate-glow"
         >
           <div className="hidden md:block w-1/2">
             <Lottie animationData={loginAnimation} loop={true} className="h-full" />
@@ -119,8 +119,8 @@ const Signin = () => {
               </div>
 
               <div className="form-control">
-                <label className="cursor-pointer flex items-center gap-2 text-black">
-                  <input type="checkbox" {...register('terms')} className="checkbox checkbox-sm text-black bg-amber-300" />
+                <label className="cursor-pointer flex items-center gap-2 ">
+                  <input type="checkbox" {...register('terms')} className="checkbox checkbox-sm  bg-amber-300" />
                   Accept Terms & Conditions
                 </label>
               </div>
@@ -135,7 +135,7 @@ const Signin = () => {
                 <button
                   type="button"
                   onClick={handleForgetPassword}
-                  className="link link-hover text-sm text-blue-600"
+                  className="link link-hover text-sm text-primary"
                 >
                   Forgot password?
                 </button>
@@ -144,7 +144,7 @@ const Signin = () => {
               <button
                 type="button"
                 onClick={handleGoogleLogin}
-                className="btn w-full border border-gray-300 bg-white text-black"
+                className="btn w-full border border-gray-300"
               >
                 <img
                   src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_2013_Google.png"
@@ -163,8 +163,14 @@ const Signin = () => {
 
               {errorMessage && <p className="text-red-500 text-center">{errorMessage}</p>}
             </form>
+            <Link to='/' className=' '> <button className='btn btn-primary mt-10 ml-32'>back home</button></Link>
+            
           </div>
+          
+          
         </motion.div>
+
+       
       </div>
 
       <style>{`

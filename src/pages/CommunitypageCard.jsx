@@ -2,21 +2,21 @@ import React from 'react';
 import { motion } from "framer-motion";
 import { use, useEffect, useState } from "react";
 import {
-  FacebookShareButton,
-  TwitterShareButton,
-  WhatsappShareButton,
-  FacebookIcon,
-  TwitterIcon,
-  WhatsappIcon,
+    FacebookShareButton,
+    TwitterShareButton,
+    WhatsappShareButton,
+    FacebookIcon,
+    TwitterIcon,
+    WhatsappIcon,
 } from "react-share";
 const textColors = [
-  "text-primary",
-  "text-secondary",
-  "text-accent",
-  "text-info",
-  "text-success",
-  "text-warning",
-  "text-error",
+    "text-primary",
+    "text-secondary",
+    "text-accent",
+    "text-info",
+    "text-success",
+    "text-warning",
+    "text-error",
 ];
 
 const CommunitypageCard = ({ Card }) => {
@@ -55,20 +55,20 @@ const CommunitypageCard = ({ Card }) => {
                             <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary via-accent to-info blur-md opacity-0 group-hover:opacity-40 transition duration-500 z-0"></div>
 
                             <div className="relative z-10">
-                                <div className="overflow-hidden rounded-xl mb-4 border-4 border-info transition-all duration-500 group-hover:scale-105 group-hover:border-accent shadow-md ">
+                                <div className="overflow-hidden rounded-xl  border-1 border-info transition-all duration-500 group-hover:scale-105 group-hover:border-accent shadow-md ">
                                     <img
                                         src={story.image}
                                         alt={story.title}
                                         className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110 "
                                     />
                                 </div>
-                                <div className="card-body space-y-2">
+                                <div className="card-body ">
                                     <h2 className={`card-title font-semibold text-lg ${textColors[colorIndex]}`}>
                                         {story.title}
                                     </h2>
                                     <p className="text-gray-600">{story.description}</p>
                                     <p className="text-sm text-gray-400">— {Card.name}</p>
-                                    <div className="mt-4 flex gap-2 items-center">
+                                    <div className=" flex gap-2 items-center">
                                         <FacebookShareButton
                                             url={window.location.href}
                                             quote={story.title}

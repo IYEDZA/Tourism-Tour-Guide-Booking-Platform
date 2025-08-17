@@ -56,7 +56,7 @@ export default function TourGuideProfilePage() {
   <div>
 {/* 
     {users.map(=><TourGuideProfilecard initialGuide={initialGuide}></TourGuideProfilecard>)} */}
-    {users.map(initialGuide => <TourGuideProfilecard key={initialGuide._id} initialGuide={initialGuide} ></TourGuideProfilecard>)}
+    {users.map(initialGuide => <TourGuideProfilecard key={initialGuide._id} initialGuide={initialGuide} refetch={refetch} ></TourGuideProfilecard>)}
   </div>
   );
 }

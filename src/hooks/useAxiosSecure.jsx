@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router';
 import Authcontext from '../context/Authcontext';
 
 const axiosSecure = axios.create({
-    baseURL: `http://localhost:3000`
+    baseURL: `https://my-as-12-tourist-server.vercel.app`
 });
 
 const useAxiosSecure = () => {
@@ -13,8 +13,9 @@ const useAxiosSecure = () => {
     const navigate = useNavigate();
 
     axiosSecure.interceptors.request.use(config => {
+         const token = localStorage.getItem('access-token')
         // user.accessToken
-        config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`
+        config.headers.Authorization = `Bearer ${token}`
         return config;
     }, error => {
         return Promise.reject(error);

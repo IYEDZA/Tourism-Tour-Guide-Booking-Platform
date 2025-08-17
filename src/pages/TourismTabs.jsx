@@ -46,8 +46,8 @@ const { data:packages  = [] } = useQuery({
   });
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-20">
-      <h2 className="text-4xl font-bold text-center text-primary mb-4">Tourism & Travel Guide</h2>
+    <div className=" px-4 py-20 bg-base-100">
+      <h2 className="text-3xl font-bold text-center  mb-4">Tourism & Travel Guide</h2>
       <p className="text-center text-gray-500 mb-10">Choose from our premium packages or meet expert tour guides.</p>
 
       <Tabs>

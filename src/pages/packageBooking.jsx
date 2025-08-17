@@ -92,7 +92,7 @@ const PackageBooking = () => {
   ;
 
   return (
-    <div className="relative z-10">
+    <div className="relative z-10 mt-20">
       {/* 🌟 Header */}
       <div className="relative py-10 text-center overflow-hidden bg-gradient-to-br from-base-200 to-base-100 rounded-xl shadow-xl">
         <div className="absolute inset-0 bg-gradient-to-tr from-purple-600 via-pink-500 to-indigo-500 opacity-10 blur-2xl animate-pulse z-0" />
@@ -100,7 +100,7 @@ const PackageBooking = () => {
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative z-10 text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent drop-shadow-lg flex items-center justify-center gap-4"
+          className="relative z-10 text-3xl md:text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text  drop-shadow-lg flex items-center justify-center gap-4"
         >
           <FaRoute className="text-accent animate-spin-slow" />
           Plan Your Next Adventure
@@ -169,9 +169,9 @@ const PackageBooking = () => {
         )}
      
      {
-      user?.email?(<button type="submit" className="btn btn-accent w-full mt-4">
+      user?.email?(<button type="submit" className="btn btn-primary w-full mt-4">
           Book Now
-        </button>):( <Link to='/login'><button className="btn btn-accent w-full mt-4">
+        </button>):( <Link to='/login'><button className="btn btn-primary w-full mt-4">
          You can not  Booking login now
         </button></Link>)
      }
