@@ -22,8 +22,7 @@ import ManageTourGuideStoriesCard from './ManageTourGuideStoriesCard';
 // const mockStories = [
 //  
 //   {
-//     id: 2,
-//     title: "Bali Beach Escape",
+//    
 //     shortDesc: "Relaxing days on Bali's beaches.",
 //     story: "The beaches of Bali were tranquil and beautiful. Enjoyed sunsets and cultural dances.",
 //     place: "Bali, Indonesia",
