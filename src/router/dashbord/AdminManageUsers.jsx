@@ -59,14 +59,16 @@ export default function AdminManageUsers() {
 
 
   const filteredUsers = users1.filter((user) => {
-    const matchesSearch =
-      user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      user.email.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesRole = selectedRole.value
-      ? user.role === selectedRole.value
-      : true;
-    return matchesSearch && matchesRole;
-  });
+  const matchesSearch =
+    (user?.name?.toLowerCase() || "").includes(searchTerm.toLowerCase()) ||
+    (user?.email?.toLowerCase() || "").includes(searchTerm.toLowerCase());
+
+  const matchesRole = selectedRole?.value
+    ? user?.role === selectedRole.value
+    : true;
+
+  return matchesSearch && matchesRole;
+});
 
 
 

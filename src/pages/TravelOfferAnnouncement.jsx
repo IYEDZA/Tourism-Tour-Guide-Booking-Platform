@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import { FaPlane, FaTags, FaGift, FaArrowRight, FaUmbrellaBeach, FaHiking, FaMountain, FaCity, FaLandmark } from "react-icons/fa";
+import { Link } from "react-router";
 
 export default function TravelOfferAnnouncement() {
   return (
     <motion.div
-      className="bg-gradient-to-br from-purple-600 to-red-400 text-white rounded-2xl shadow-2xl p-8 text-center my-10 mx-4 md:mx-auto max-w-6xl border-4 border-white"
+      className="mt-20 rounded-2xl shadow-2xl p-8 text-center my-10 mx-4 md:mx-auto max-w-6xl border-1 border-white"
       initial={{ opacity: 0, y: 40, rotateY: -90 }}
       animate={{ opacity: 1, y: 0, rotateY: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
@@ -24,16 +25,16 @@ export default function TravelOfferAnnouncement() {
         animate={{ scale: 1, rotateX: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
       >
-        🌍 Travel with <span className="text-yellow-200 font-bold">TourZone</span> this season and enjoy up to
+        🌍 Travel with <span className="text-yellow-200 font-bold">WanderSphere</span> this season and enjoy up to
         <span className="text-yellow-300 font-extrabold"> 30% OFF </span>on selected packages to:
       </motion.p>
 
-      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-white text-left">
+      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
         {[
           {
             title: "Cox’s Bazar",
             icon: <FaUmbrellaBeach />,
-            img: "https://i.ibb.co/hZpLtqv/cox.jpg",
+            img: "https://i.ibb.co.com/nMbfWhyQ/You-Tube-1.jpg",
             items: [
               "✅ 3 nights beachside resort stay",
               "✅ Seafood & snorkeling tour",
@@ -44,7 +45,7 @@ export default function TravelOfferAnnouncement() {
           {
             title: "Sajek Valley",
             icon: <FaMountain />,
-            img: "https://i.ibb.co/zVXk7m1/sajek.jpg",
+            img: "https://i.ibb.co.com/rG8bzBD5/freedom.jpg",
             items: [
               "✅ Scenic hill resort views",
               "✅ Guided trekking & sunrise points",
@@ -55,7 +56,7 @@ export default function TravelOfferAnnouncement() {
           {
             title: "Sundarbans",
             icon: <FaHiking />,
-            img: "https://i.ibb.co/VjmCSLc/sundarbans.jpg",
+            img: "https://i.ibb.co.com/RG1ZLNC7/download-2.jpg",
             items: [
               "✅ Jungle boat safari",
               "✅ Wildlife photography session",
@@ -66,7 +67,7 @@ export default function TravelOfferAnnouncement() {
           {
             title: "Dhaka City Tour",
             icon: <FaCity />,
-            img: "https://i.ibb.co/JjFfNHq/dhaka.jpg",
+            img: "https://i.ibb.co.com/fYNsZ589/4k-Nature-wallpaper.jpg",
             items: [
               "✅ Rickshaw heritage ride",
               "✅ Lalbagh Fort & museum visit",
@@ -77,7 +78,7 @@ export default function TravelOfferAnnouncement() {
           {
             title: "Paharpur",
             icon: <FaLandmark />,
-            img: "https://i.ibb.co/S7jkbXj/paharpur.jpg",
+            img: "https://i.ibb.co.com/wrh3C4Qy/download-5.jpg",
             items: [
               "✅ UNESCO World Heritage Site",
               "✅ Guided archeological tour",
@@ -88,7 +89,7 @@ export default function TravelOfferAnnouncement() {
           {
             title: "Saint Martin’s Island",
             icon: <FaUmbrellaBeach />,
-            img: "https://i.ibb.co/FB4PcvK/saint.jpg",
+            img: "https://i.ibb.co.com/XkSthSYp/Beach-Desktop-Wallpapers-Free-Download.jpg",
             items: [
               "✅ Coral beach & island hop",
               "✅ Water sports and BBQ night",
@@ -99,7 +100,7 @@ export default function TravelOfferAnnouncement() {
         ].map((pkg, idx) => (
           <motion.div
             key={idx}
-            className="bg-white/30 rounded-xl p-4 shadow-lg backdrop-blur-lg border border-white/30 overflow-hidden"
+            className="rounded-xl p-4 shadow-lg backdrop-blur-lg border border-white/30 overflow-hidden"
             whileHover={{ scale: 1.1, rotateY: 5 }}
             initial={{ opacity: 0, rotateY: -20, rotateX: -10, scale: 0.95 }}
             animate={{ opacity: 1, rotateY: 0, rotateX: 0, scale: 1 }}
@@ -121,7 +122,7 @@ export default function TravelOfferAnnouncement() {
               {pkg.icon} {pkg.title}
             </motion.h4>
             <motion.ul
-              className="text-sm space-y-1 text-white/90"
+              className="text-sm space-y-1 "
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: pkg.delay + 0.3, duration: 0.5 }}
@@ -134,13 +135,15 @@ export default function TravelOfferAnnouncement() {
         ))}
       </div>
 
-      <motion.button
+      <Link to='/package'> <motion.button
         whileHover={{ scale: 1.1, rotateZ: 3 }}
         whileTap={{ scale: 0.95 }}
-        className="mt-10 bg-yellow-300 text-purple-800 font-bold px-8 py-3 rounded-full shadow-md hover:shadow-xl transition duration-300"
+        className="mt-10 bg-primary font-bold px-8 py-3 rounded-full shadow-md hover:shadow-xl transition duration-300"
       >
         <FaPlane className="inline-block mr-2" /> Book Now <FaArrowRight className="inline-block ml-2" />
-      </motion.button>
+      </motion.button></Link>
+
+     
     </motion.div>
   );
 }
