@@ -43,7 +43,7 @@ const MangageTouriststoiesCard = ({mockStories}) => {
     //     Swal.fire("Deleted!", "The story has been deleted.", "success");
     //     // refetch && refetch(); // refresh data if needed
     //   } else {
-    //     Swal.fire("Error", res.data.message, "error");
+   
     //   }
     } catch (err) {
       Swal.fire("Error", err.message, "error");
