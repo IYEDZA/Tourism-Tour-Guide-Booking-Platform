@@ -39,12 +39,7 @@ const MangageTouriststoiesCard = ({mockStories}) => {
   if (confirm.isConfirmed) {
     try {
       const res = await axiosInstance.delete(`/stories/${parentId}`);
-    //   if (res.data.success) {
-   
-    //     // refetch && refetch(); // refresh data if needed
-    //   } else {
-   
-    //   }
+    
     } catch (err) {
       Swal.fire("Error", err.message, "error");
     }
