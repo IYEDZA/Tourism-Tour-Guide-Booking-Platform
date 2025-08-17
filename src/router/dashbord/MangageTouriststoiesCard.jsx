@@ -40,7 +40,7 @@ const MangageTouriststoiesCard = ({mockStories}) => {
     try {
       const res = await axiosInstance.delete(`/stories/${parentId}`);
     //   if (res.data.success) {
-    //     Swal.fire("Deleted!", "The story has been deleted.", "success");
+   
     //     // refetch && refetch(); // refresh data if needed
     //   } else {
    
