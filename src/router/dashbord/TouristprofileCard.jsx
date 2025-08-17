@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { use, useState } from "react";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 import { Dialog, Transition } from "@headlessui/react";
@@ -12,8 +12,11 @@ import {
 } from "react-icons/fa";
 import useAxios from "../../hooks/useAxios";
 import { Link } from "react-router";
+import Authcontext from "../../context/Authcontext";
 
-const TouristprofileCard = ({ user,refetch }) => {
+const TouristprofileCard = ({ user1,refetch }) => {
+
+   const {user}= use (Authcontext)
 
 
   const [isOpen, setIsOpen] = useState(false);
@@ -22,16 +25,17 @@ const TouristprofileCard = ({ user,refetch }) => {
 
   const { register, handleSubmit, reset } = useForm({
     defaultValues: {
-      name: user.name,
-      phone: user.phone || "",
-      location: user.location || "",
-      about: user.about || "",
+      name: user1.name,
+      phone: user1.phone || "",
+      location: user1.location || "",
+      about: user1.about || "",
+      // photo:user.photo
     },
   });
 
   const onSubmit = (data) => {
     // Optional: Send `data` to backend with Axios
-const admindata   =  axiosSecure.patch(`/users/${user._id}`,data)
+const admindata   =  axiosSecure.patch(`/users/${user1._id}`,data)
    
 
 
@@ -57,7 +61,7 @@ refetch()
         className="max-w-6xl mx-auto  p-10 rounded-xl shadow-2xl "
       >
         <h2 className="text-3xl font-bold text-center  mb-10 animate-pulse">
-          👋 Welcome Back, {user.name}!
+          👋 Welcome Back, {user1.name}!
         </h2>
 
         <div className="grid lg:grid-cols-3 gap-8 items-start">
@@ -66,34 +70,34 @@ refetch()
             className="relative w-full overflow-hidden  shadow-lg group rounded-xl"
           >
             <img
-              src={user.photo}
+              src={user.photoURL}
               alt="User Avatar"
               className="w-full h-80 object-cover group-hover:scale-105 transition duration-700"
             />
             <div className="absolute bottom-0 left-0 w-full  bg-opacity-70  text-center p-2">
-              <p className="text-lg font-bold">{user.name}</p>
-              <p className="text-sm ">{user.role}</p>
+              <p className="text-lg font-bold">{user1.name}</p>
+              <p className="text-sm ">{user1.role}</p>
             </div>
           </motion.div>
 
           <div className="lg:col-span-2 divide-y divide-accent/30">
             <div className="py-4 flex items-center gap-2  text-lg font-semibold">
-              <FaUser /> Name: <span>{user.name}</span>
+              <FaUser /> Name: <span>{user1.name}</span>
             </div>
             <div className="py-4 flex items-center gap-2  text-lg font-semibold">
-              <FaEnvelope /> Email: <span>{user.email}</span>
+              <FaEnvelope /> Email: <span>{user1.email}</span>
             </div>
             <div className="py-4 flex items-center gap-2 text-lg font-semibold">
-              <FaUserTie /> Role: <span>{user.role}</span>
+              <FaUserTie /> Role: <span>{user1.role}</span>
             </div>
             <div className="py-4 flex items-center gap-2  text-lg font-semibold">
-              📞 Phone: <span>{user.phone}</span>
+              📞 Phone: <span>{user1.phone}</span>
             </div>
             <div className="py-4 flex items-center gap-2  text-lg font-semibold">
-              📍 Location: <span>{user.location}</span>
+              📍 Location: <span>{user1.location}</span>
             </div>
             <div className="py-4 italic border-l-4 border-primary pl-4">
-              📝 {user.about}
+              📝 {user1.about}
             </div>
           </div>
         </div>
@@ -133,12 +137,12 @@ refetch()
                   placeholder="Name......"
                 />
                 <input
-                  value={user.email}
+                  value={user1.email}
                   disabled
                   className="input w-full "
                 />
                 <input
-                  value={user.role}
+                  value={user1.role}
                   disabled
                   className="input w-full "
                 />

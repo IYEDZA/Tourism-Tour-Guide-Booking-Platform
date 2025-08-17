@@ -46,7 +46,7 @@ export default function ManageTouristProfile() {
   return (
    <div>
 
-    {users.map(user=><TouristprofileCard user={user} refetch={refetch}></TouristprofileCard>)}
+    {users.map(user=><TouristprofileCard user1={user} refetch={refetch}></TouristprofileCard>)}
     
    </div>
   );
