@@ -20,19 +20,7 @@ import { useQuery } from '@tanstack/react-query';
 import ManageTourGuideStoriesCard from './ManageTourGuideStoriesCard';
 
 // const mockStories = [
-//   {
-//     id: 1,
-//     title: "Safari Adventure",
-//     shortDesc: "Exploring wildlife in Kenya.",
-//     story: "It was an amazing safari adventure, witnessing the big five in their natural habitat.",
-//     place: "Kenya",
-//     date: "2025-06-10",
-//     cost: 1200,
-//     images: [
-//       "https://i.ibb.co/V9JqV0L/safari.jpg",
-//       "https://i.ibb.co/hVKKgtH/testimonial6.jpg"
-//     ]
-//   },
+//  
 //   {
 //     id: 2,
 //     title: "Bali Beach Escape",
