@@ -23,14 +23,7 @@ import ManageTourGuideStoriesCard from './ManageTourGuideStoriesCard';
 //  
 //   {
 //    
-//     shortDesc: "Relaxing days on Bali's beaches.",
-//     story: "The beaches of Bali were tranquil and beautiful. Enjoyed sunsets and cultural dances.",
-//     place: "Bali, Indonesia",
-//     date: "2025-05-05",
-//     cost: 800,
-//     images: [
-//       "https://i.ibb.co/Ytk1cY3/testimonial9.jpg"
-//     ]
+//    
 //   }
 // ];
 
